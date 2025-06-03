@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Banksim_Web.props" />
+</Project>

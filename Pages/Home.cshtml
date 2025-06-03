@@ -1,0 +1,81 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization
+@model HomeModel
+@attribute [Authorize]
+@{
+    ViewData["Title"] = "Home";
+}
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        width: 250px;
+        background-color: #2198F4;
+        color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar h2 {
+        margin: 0 0 40px 0;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu a {
+        margin: 10px 0;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .menu a:hover {
+        background-color: #2198F4;
+    }
+
+    .content {
+        flex: 1;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content h1 {
+        font-size: 36px;
+        color: #2198F4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<div class="sidebar">
+    <h2>BankSim</h2>
+    <div class="menu">
+        <a asp-page="/Deposito">Depósito</a>
+        <a asp-page="/Transferencia">Transferência</a>
+        <a asp-page="/Caixinha">Caixinha</a>
+    </div>
+</div>
+
+<div class="content">
+    <h1>BankSim</h1>
+</div>

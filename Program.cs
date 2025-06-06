@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +8,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddAuthentication("cookieAuth")
     .AddCookie("cookieAuth", config =>
     {
-        config.LoginPath = "/Login"; // Redirecionar para a p�gina de login
+        config.LoginPath = "/Login"; // Redirecionar para a página de login
     });
 
 builder.Services.AddAuthorization(); // Habilita uso do [Authorize]

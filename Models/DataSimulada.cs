@@ -9,7 +9,7 @@ public class DataSimulada
 
     // Chave estrangeira
     public int ContaBancariaID { get; set; }
-    public ContaBancaria ContaBancaria { get; set; }
+    public ContaBancaria? ContaBancaria { get; set; }
 
     // Datas de referência
     public int DiaInicial { get; set; }
@@ -71,5 +71,5 @@ public class DataSimulada
     }
 
     // Retorna o nome do mês atual usando o enum
-    public string NomeMesAtual => Enum.GetName(typeof(Meses), MesAtual);
+    public string NomeMesAtual => Enum.GetName(typeof(Meses), MesAtual)!;
 }

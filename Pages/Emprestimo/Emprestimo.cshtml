@@ -1,0 +1,171 @@
+﻿@page
+@model EmprestimoModel
+@{
+    ViewData["Title"] = "Empréstimo";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Empréstimo - BankSim</title>
+    <style>
+        /* Mesmo estilo da página de transferência */
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn-submit {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-submit:hover {
+                background-color: #005ae0;
+            }
+
+        .form-control-plaintext {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #1065ee;
+        }
+
+        .text-danger {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Solicitar Empréstimo</h2>
+        <form method="post">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <label asp-for="NomeEmprestimo">Nome do Empréstimo:</label>
+            <input asp-for="NomeEmprestimo" />
+
+            <label asp-for="ValorEmprestimo">Valor do Empréstimo (R$):</label>
+            <input asp-for="ValorEmprestimo" type="number" step="0.01" onchange="calcularParcelas()" />
+
+            <label asp-for="QntdParcela">Quantidade de Parcelas:</label>
+            <select asp-for="QntdParcela" onchange="calcularParcelas()">
+                @for (int i = 1; i <= 12; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+
+            <label asp-for="DiaPagamento">Escolha o dia de pagamento:</label>
+            <select asp-for="DiaPagamento">
+                @for (int i = 1; i <= 28; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+
+            <label>Valor estimado de cada parcela:</label>
+            <div id="valorParcela" class="form-control-plaintext">R$ 0,00</div>
+            <label>Valor total do Empréstimo:</label>
+            <div id="totalComJuros" class="form-control-plaintext">R$ 0,00</div>
+
+            <button type="submit" class="btn-submit">Confirmar Empréstimo</button>
+        </form>
+    </div>
+
+    <script>
+        function truncarParaDuasCasas(valor) {
+            return Math.floor(valor * 100) / 100;
+        }
+
+        function calcularParcelas() {
+            const valor = parseFloat(document.querySelector('[name="ValorEmprestimo"]').value || '0');
+            const parcelas = parseInt(document.querySelector('[name="QntdParcela"]').value || '1');
+            const juros = parseFloat('@Model.PorcentagemJuros');
+
+            if (valor > 0 && parcelas > 0) {
+                const totalComJuros = truncarParaDuasCasas(valor * (1 + (juros / 100 * parcelas)));
+                const valorParcela = truncarParaDuasCasas(totalComJuros / parcelas);
+
+                document.getElementById("valorParcela").innerText = `R$ ${valorParcela.toFixed(2)}`;
+                document.getElementById("totalComJuros").innerText = `R$ ${totalComJuros.toFixed(2)}`;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", calcularParcelas);
+    </script>
+</body>
+</html>

@@ -14,6 +14,8 @@ namespace Banksim_Web.Models
         [ForeignKey("Usuario")]
         public int UsuarioID { get; set; }
 
+        public string? FotoPerfilUsuario { get; set; }
+
         [Required]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Saldo { get; set; } = 0;
@@ -26,16 +28,14 @@ namespace Banksim_Web.Models
 
         public int DiaPagamentoFatura { get; set; } = 1;
 
-        public int DiaPagamentoEmprestimo { get; set; } = 28;
-
         [Required]
-        public double PorcentagemEmprestimo { get; set; }
+        public double PorcentagemEmprestimo { get; set; } = 4.25;
 
         public DateTime DataCriacao { get; set; } = DateTime.Now;
 
         public Usuario? Usuario { get; set; }
 
         [ValidateNever]
-        public DataSimulada dataSimulada { get; set; }
+        public DataSimulada? dataSimulada { get; set; }
     }
 }

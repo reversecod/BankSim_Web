@@ -1,0 +1,230 @@
+﻿@page
+@model TransferenciaModel
+@{
+    ViewData["Title"] = "Transferência";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Transferência - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .input-prefix {
+            position: relative;
+            margin-top: 5px;
+        }
+
+            .input-prefix .prefix {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+                color: #555;
+                font-size: 0.95rem;
+                pointer-events: none;
+            }
+
+            .input-prefix input {
+                width: 100%;
+                padding: 10px;
+                padding-left: 30px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+            }
+
+        select, input, .form-control-plaintext {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn-submit {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-submit:hover {
+                background-color: #005ae0;
+            }
+
+        .text-danger {
+            color: red;
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .validation-summary-errors ul {
+            padding-left: 20px;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Transferência</h2>
+        <form method="post">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <label asp-for="Transferencia.Valor">Valor da Transferência:</label>
+            <div class="input-prefix">
+                <span class="prefix">R$</span>
+                <input asp-for="Transferencia.Valor" type="number" step="0.01" onchange="atualizarParcela()" />
+            </div>
+            <span asp-validation-for="Transferencia.Valor" class="text-danger"></span>
+
+            <label asp-for="Transferencia.TipoTransferencia">Tipo de Transferência:</label>
+            <select asp-for="Transferencia.TipoTransferencia" asp-items="Model.TiposTransferencia" onchange="mostrarCampos()"></select>
+
+            <label asp-for="Transferencia.Descricao">Descrição (opcional):</label>
+            <input asp-for="Transferencia.Descricao" />
+
+            <div id="parcelamentoDiv">
+                <label for="QtdParcelas">Quantidade de Parcelas:</label>
+                <select asp-for="QtdParcelas" onchange="atualizarParcela()">
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+
+            <div id="jurosDiv">
+                <label for="PorcentagemJuros">Porcentagem de Juros (%):</label>
+                <input asp-for="PorcentagemJuros" step="0.01" onchange="atualizarParcela()" />
+            </div>
+
+            <div id="mesFaturaDiv">
+                <label for="MesSelecionado">Começar pagamento em:</label>
+                <select asp-for="MesSelecionado" onchange="atualizarParcela()">
+                    @foreach (var item in Model.MesesDisponiveis)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+            </div>
+
+            <div id="parcelaInfo">
+                <label>Valor estimado de cada parcela:</label>
+                <div id="parcelaCalculada" class="form-control-plaintext fw-bold text-primary">Valores inválidos</div>
+            </div>
+
+            <button type="submit" class="btn-submit">Confirmar Transferência</button>
+        </form>
+    </div>
+
+    <script>
+        function mostrarCampos() {
+            const tipo = document.querySelector('[name="Transferencia.TipoTransferencia"]').value;
+            const divParcelamento = document.getElementById('parcelamentoDiv');
+            const divJuros = document.getElementById('jurosDiv');
+            const divMes = document.getElementById('mesFaturaDiv');
+            const divParcelaInfo = document.getElementById('parcelaInfo');
+
+            if (tipo === 'C') {
+                divParcelamento.style.display = 'block';
+                divJuros.style.display = 'block';
+                divMes.style.display = 'block';
+                divParcelaInfo.style.display = 'block';
+                atualizarParcela();
+            } else {
+                divParcelamento.style.display = 'none';
+                divJuros.style.display = 'none';
+                divMes.style.display = 'none';
+                divParcelaInfo.style.display = 'none';
+            }
+        }
+
+        function atualizarParcela() {
+            const valor = parseFloat(document.querySelector('[name="Transferencia.Valor"]').value || '0');
+            const juros = parseFloat(document.querySelector('[name="PorcentagemJuros"]').value || '0');
+            const parcelas = parseInt(document.querySelector('[name="QtdParcelas"]').value || '1');
+            const resultadoDiv = document.getElementById('parcelaCalculada');
+
+            if (parcelas < 1 || valor <= 0 || juros < 0) {
+                resultadoDiv.innerText = "Valores inválidos.";
+                return;
+            }
+
+            const valorTotal = (valor * juros / 100 * parcelas) + valor;
+            const valorParcela = (valorTotal / parcelas).toFixed(2);
+            resultadoDiv.innerText = `R$ ${valorParcela}`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            mostrarCampos();
+        });
+    </script>
+</body>
+</html>

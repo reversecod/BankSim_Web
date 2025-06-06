@@ -14,7 +14,7 @@ namespace Banksim_Web.Models
 
         [ForeignKey("ContaBancariaID")]
         [ValidateNever]
-        public ContaBancaria ContaBancaria { get; set; }
+        public ContaBancaria? ContaBancaria { get; set; }
 
         [Required]
         public decimal Valor { get; set; }
@@ -31,6 +31,7 @@ namespace Banksim_Web.Models
 
         [Required]
         public int AnoTransferencia { get; set; }
+        public int? QtdParcelas { get; set; } // Pode ser nulo para transferências via débito
 
         public bool Efetivado { get; set; } = false;
     }

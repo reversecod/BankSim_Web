@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @using Microsoft.AspNetCore.Authorization
 @model HomeModel
 @attribute [Authorize]
@@ -20,6 +20,7 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
+        justify-content: space-between; /* ESSENCIAL */
         align-items: center;
     }
 
@@ -69,11 +70,20 @@
 
 <div class="sidebar">
     <h2>BankSim</h2>
+
     <div class="menu">
-        <a asp-page="/Deposito">Depósito</a>
-        <a asp-page="/Transferencia">Transferência</a>
-        <a asp-page="/Caixinha">Caixinha</a>
+        <a asp-page="/Deposito/Deposito">Depósito</a>
+        <a asp-page="/Transferencia/Transferencia">Transferência</a>
+        <a asp-page="/Emprestimo/Emprestimo">Empréstimo</a>
+        <a asp-page="/Faturas/Faturas">Faturas</a>
+        <a asp-page="/Caixinha/Caixinha">Caixinha</a>
+        <a asp-page="/Extrato/Extrato">Extrato</a>
+        <a asp-page="/Anotacoes/Anotacoes">Anotações</a>
+        <a asp-page="/Calendario/Calendario">Calendário</a>
     </div>
+
+    <!-- Agora fora da .menu, mas ainda dentro da sidebar -->
+    <a asp-page="/Logout" style="color: red; font-weight: bold; text-decoration: none;">Sair</a>
 </div>
 
 <div class="content">

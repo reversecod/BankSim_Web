@@ -1,0 +1,109 @@
+﻿@page "/PagesPosCarregamento/DepositoSucesso"
+@model DepositoSucessoModel
+@{
+    ViewData["Title"] = "Depósito Realizado";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Depósito Concluído - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .success-container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 60px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .btn-return {
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+            .btn-return:hover {
+                background-color: #005ae0;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="success-container">
+        <h2>Depósito realizado com sucesso!</h2>
+
+        <div class="info">
+            <strong>Valor:</strong> R$ @Model.Valor<br />
+            @if (!string.IsNullOrEmpty(Model.Descricao) && Model.Descricao != "-")
+            {
+                <strong>Descrição:</strong> 
+                @Model.Descricao
+            
+                <br />
+            }
+            <strong>Data:</strong> @Model.DataFormatada
+        </div>
+
+        <a asp-page="/Home" class="btn-return">Voltar ao Menu Inicial</a>
+    </div>
+</body>
+</html>

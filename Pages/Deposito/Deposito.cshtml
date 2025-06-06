@@ -1,0 +1,151 @@
+﻿@page
+@model DepositoModel
+@{
+    ViewData["Title"] = "Depósito";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Depositar - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .input-prefix {
+            position: relative;
+            margin-top: 5px;
+        }
+
+            .input-prefix .prefix {
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+                color: #555;
+                font-size: 0.95rem;
+                pointer-events: none;
+            }
+
+            .input-prefix input {
+                width: 100%;
+                padding: 10px;
+                padding-left: 30px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+            }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: vertical;
+            height: 80px;
+        }
+
+        .btn-submit {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-submit:hover {
+                background-color: #005ae0;
+            }
+
+        .text-danger {
+            color: red;
+            font-size: 0.9rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Realizar Depósito</h2>
+        <form method="post">
+            @Html.AntiForgeryToken()
+
+            <label asp-for="Deposito.Valor">Valor do Depósito:</label>
+            <div class="input-prefix">
+                <span class="prefix">R$</span>
+                <input asp-for="Deposito.Valor" type="number" step="0.01" min="0" />
+            </div>
+            <span asp-validation-for="Deposito.Valor" class="text-danger"></span>
+
+            <label asp-for="Deposito.Descricao">Descrição (opcional):</label>
+            <textarea asp-for="Deposito.Descricao"></textarea>
+            <span asp-validation-for="Deposito.Descricao" class="text-danger"></span>
+
+            <button type="submit" class="btn-submit">Confirmar Depósito</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -18,10 +18,27 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Mapeamento para nomes exatos das tabelas no banco
+        modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+        modelBuilder.Entity<ContaBancaria>().ToTable("ContasBancarias");
+        modelBuilder.Entity<DataSimulada>().ToTable("DataSimulada");
+        modelBuilder.Entity<Deposito>().ToTable("Depositos");
+        modelBuilder.Entity<Transferencia>().ToTable("Transferencias");
+        modelBuilder.Entity<Anotacao>().ToTable("Anotacoes");
+        modelBuilder.Entity<Caixinha>().ToTable("Caixinhas");
+        modelBuilder.Entity<Emprestimo>().ToTable("Emprestimos");
+        modelBuilder.Entity<Fatura>().ToTable("Fatura"); // singular conforme o banco
+        modelBuilder.Entity<Extrato>().ToTable("Extrato");
+
+        // Relacionamento 1:1 entre ContaBancaria e DataSimulada
         modelBuilder.Entity<DataSimulada>()
             .HasOne(c => c.ContaBancaria)
             .WithOne(cb => cb.dataSimulada)
             .HasForeignKey<DataSimulada>(c => c.ContaBancariaID)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Fatura>()
+       .HasIndex(f => new { f.ContaBancariaID, f.MesPagamento, f.AnoPagamento })
+       .IsUnique();
     }
 }

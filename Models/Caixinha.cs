@@ -16,6 +16,7 @@ namespace Banksim_Web.Models
         [ValidateNever]
         public ContaBancaria ContaBancaria { get; set; }
         public string NomeCaixinha { get; set; } = string.Empty;
+        public string? FotoCaixinha { get; set; }
         public decimal ValorCaixinha { get; set; }
         public double PorcentagemRendimento { get; set; }
         public int DiaCriacao { get; set; }

@@ -1,0 +1,89 @@
+﻿@page "/PagesPosCarregamento/EmprestimoSucesso"
+@model EmprestimoSucessoModel
+@{
+    ViewData["Title"] = "Empréstimo Realizado";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Empréstimo Concluído - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .success-container {
+            max-width: 500px;
+            margin: 80px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .btn-return {
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+            .btn-return:hover {
+                background-color: #005ae0;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="success-container">
+        <h2>Empréstimo realizado com sucesso!</h2>
+        <p><strong>@Model.NomeEmprestimo</strong> - @Model.ValorFormatado</p>
+        <a asp-page="/Home" class="btn-return">Voltar ao Menu Inicial</a>
+    </div>
+</body>
+</html>

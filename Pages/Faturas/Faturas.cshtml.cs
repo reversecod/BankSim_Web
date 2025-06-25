@@ -45,16 +45,30 @@ public class FaturasModel : PageModel
             .ThenBy(f => f.MesPagamento)
             .FirstOrDefault();
 
+        if (FaturaSelecionada == null)
+        {
+            return RedirectToPage("/Faturas/TodasFaturas");
+        }
+
+
         return Page();
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        if (!int.TryParse(userId, out var uid)) return RedirectToPage("/Erro");
+        if (!int.TryParse(userId, out var uid))
+        {
+            ModelState.AddModelError("", "Usuário inválido.");
+            return Page();
+        }
 
         var conta = _db.ContasBancarias.FirstOrDefault(c => c.UsuarioID == uid);
-        if (conta == null) return RedirectToPage("/Erro");
+        if (conta == null)
+        {
+            ModelState.AddModelError("", "Conta bancária não encontrada.");
+            return Page();
+        }
 
         var fatura = _db.Faturas
             .Where(f => f.ContaBancariaID == conta.ID && !f.Efetivado)
@@ -62,25 +76,60 @@ public class FaturasModel : PageModel
             .ThenBy(f => f.MesPagamento)
             .FirstOrDefault();
 
+        var dataSimulada = _db.DataSimulada.FirstOrDefault(d => d.ContaBancariaID == conta.ID);
+        if (dataSimulada == null)
+        {
+            ModelState.AddModelError("", "Data simulada não localizada.");
+            return Page();
+        }
+
         if (fatura == null)
         {
-            ModelState.AddModelError("", "Fatura não encontrada ou já foi paga.");
+            return RedirectToPage("/Faturas/TodasFaturas");
+        }
+
+        // 🧠 Reatribui para manter visível no Razor
+        FaturaSelecionada = fatura;
+
+        if (ValorPagamento == 0)
+        {
+            ModelState.AddModelError("", "Digite um valor para pagamento ou clique em 'Pagar tudo'.");
             return Page();
         }
 
-        if (ValorPagamento <= 0 || ValorPagamento > fatura.ValorFatura)
+        if (ValorPagamento > fatura.ValorFaturaAtual)
         {
-            ModelState.AddModelError("", "Valor de pagamento inválido.");
+            ValorPagamento = fatura.ValorFaturaAtual;
+        }
+
+        if (ValorPagamento < 0.01m)
+        {
+            ModelState.AddModelError("", "O valor de pagamento deve ser maior que zero.");
             return Page();
         }
 
-        fatura.ValorFatura -= ValorPagamento;
-        if (fatura.ValorFatura <= 0.01m)
+        if (conta.Saldo < ValorPagamento)
         {
-            fatura.Efetivado = true;
+            ModelState.AddModelError("", "Saldo insuficiente para pagar a fatura.");
+            return Page();
         }
 
         conta.Saldo -= ValorPagamento;
+        conta.LimiteCreditoDisponivel += ValorPagamento;
+        fatura.ValorFaturaAtual -= ValorPagamento;
+        if (fatura.ValorFaturaAtual <= 0.01m)
+            fatura.Efetivado = true;
+
+        _db.Extratos.Add(new Extrato
+        {
+            ContaBancariaID = conta.ID,
+            TipoTransacao = "Pagamento de Fatura",
+            Valor = ValorPagamento,
+            DiaTransacao = dataSimulada.DiaAtual,
+            MesTransacao = dataSimulada.MesAtual,
+            AnoTransacao = dataSimulada.AnoAtual,
+            Timestamp = DateTime.Now
+        });
 
         await _db.SaveChangesAsync();
 

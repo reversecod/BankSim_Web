@@ -53,7 +53,7 @@ public class CriarContaModel : PageModel
 
         bool diaValido = DiaInicial >= 1 && DiaInicial <= DateTime.DaysInMonth(DateTime.Now.Year, MesInicial);
         bool porcentagemValida = Conta.PorcentagemEmprestimo >= 0;
-        bool diasValidos = Conta.DiaFatura >= 1 && Conta.DiaFatura <= 31
+        bool diasValidos = Conta.DiaFatura >= 1 && Conta.DiaFatura <= 28
                         && Conta.DiaPagamentoFatura >= 1 && Conta.DiaPagamentoFatura <= 28;
 
         if (!ModelState.IsValid || !diaValido || !diasValidos || !porcentagemValida)
@@ -68,8 +68,10 @@ public class CriarContaModel : PageModel
             ModelState.AddModelError("", "Usuário inválido.");
             return Page();
         }
+
         Conta.UsuarioID = userId;
         Conta.DataCriacao = DateTime.Now;
+        Conta.LimiteCreditoDisponivel = Conta.LimiteCreditoInicial;
 
         try
         {

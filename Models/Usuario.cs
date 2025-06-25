@@ -1,5 +1,4 @@
 ﻿
-
 public class Usuario
 {
     public int ID { get; set; }

@@ -15,7 +15,7 @@ public class EmprestimoModel : PageModel
     }
 
     [BindProperty]
-    public string NomeEmprestimo { get; set; }
+    public string? NomeEmprestimo { get; set; }
 
     [BindProperty]
     public decimal ValorEmprestimo { get; set; }
@@ -51,7 +51,7 @@ public class EmprestimoModel : PageModel
         if (conta == null || dataSimulada == null) return RedirectToPage("/Erro");
 
         var emprestimoExistente = _db.Emprestimos
-        .FirstOrDefault(e => e.ContaBancariaID == conta.ID && e.Pago == false);
+            .FirstOrDefault(e => e.ContaBancariaID == conta.ID && e.Pago == false);
 
         if (emprestimoExistente != null)
         {
@@ -73,6 +73,18 @@ public class EmprestimoModel : PageModel
         };
 
         _db.Emprestimos.Add(novoEmprestimo);
+
+        _db.Extratos.Add(new Extrato
+        {
+            ContaBancariaID = conta.ID,
+            TipoTransacao = "Empréstimo",
+            Valor = ValorEmprestimo,
+            Descricao = NomeEmprestimo,
+            DiaTransacao = dataSimulada.DiaAtual,
+            MesTransacao = dataSimulada.MesAtual,
+            AnoTransacao = dataSimulada.AnoAtual,
+            Timestamp = DateTime.Now
+        });
 
         await _db.SaveChangesAsync();
 

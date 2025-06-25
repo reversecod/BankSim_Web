@@ -1,0 +1,129 @@
+﻿@page
+@model ExtratoModel
+@{
+    ViewData["Title"] = "Extrato";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Extrato - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .extrato-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        td.valor {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .no-data {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" class="logo-img" alt="BankSim Logo" />
+            </a>
+        </div>
+    </div>
+
+    <div class="extrato-container">
+        <h2>Extrato de Transações</h2>
+
+        @if (Model.ListaExtrato.Any())
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ListaExtrato.OrderByDescending(e => e.Timestamp))
+                    {
+                        <tr>
+                            <td>@($"{item.DiaTransacao:D2}/{item.MesTransacao:D2}/{item.AnoTransacao}")</td>
+                            <td>@item.TipoTransacao</td>
+                            <td>@item.Descricao</td>
+                            <td class="valor">R$ @item.Valor.ToString("F2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="no-data">Nenhuma transação encontrada.</p>
+        }
+    </div>
+</body>
+</html>

@@ -86,7 +86,7 @@
                 border-radius: 6px;
             }
 
-        select, input, .form-control-plaintext {
+        select, input {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -109,6 +109,12 @@
             .btn-submit:hover {
                 background-color: #005ae0;
             }
+
+        .form-control-plaintext {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #1065ee;
+        }
 
         .text-danger {
             color: red;
@@ -177,7 +183,10 @@
 
             <div id="parcelaInfo">
                 <label>Valor estimado de cada parcela:</label>
-                <div id="parcelaCalculada" class="form-control-plaintext fw-bold text-primary">Valores inválidos</div>
+                <div id="valorParcela" class="form-control-plaintext">R$ 0,00</div>
+
+                <label>Valor total da Transferência:</label>
+                <div id="totalComJuros" class="form-control-plaintext">R$ 0,00</div>
             </div>
 
             <button type="submit" class="btn-submit">Confirmar Transferência</button>
@@ -210,16 +219,20 @@
             const valor = parseFloat(document.querySelector('[name="Transferencia.Valor"]').value || '0');
             const juros = parseFloat(document.querySelector('[name="PorcentagemJuros"]').value || '0');
             const parcelas = parseInt(document.querySelector('[name="QtdParcelas"]').value || '1');
-            const resultadoDiv = document.getElementById('parcelaCalculada');
+            const resultadoParcela = document.getElementById('parcelaCalculada');
+            const resultadoTotal = document.getElementById('totalCalculado');
 
             if (parcelas < 1 || valor <= 0 || juros < 0) {
-                resultadoDiv.innerText = "Valores inválidos.";
+                resultadoParcela.innerText = "Valores inválidos.";
+                resultadoTotal.innerText = "R$ 0,00";
                 return;
             }
 
-            const valorTotal = (valor * juros / 100 * parcelas) + valor;
-            const valorParcela = (valorTotal / parcelas).toFixed(2);
-            resultadoDiv.innerText = `R$ ${valorParcela}`;
+            const total = Math.floor((valor * (1 + (juros / 100 * parcelas))) * 100) / 100;
+            const valorParcela = Math.floor((total / parcelas) * 100) / 100;
+
+            resultadoParcela.innerText = `R$ ${valorParcela.toFixed(2)}`;
+            resultadoTotal.innerText = `R$ ${total.toFixed(2)}`;
         }
 
         document.addEventListener("DOMContentLoaded", function () {

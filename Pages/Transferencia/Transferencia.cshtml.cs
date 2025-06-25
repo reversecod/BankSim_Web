@@ -23,7 +23,7 @@ public class TransferenciaModel : PageModel
     }
 
     [BindProperty]
-    public Transferencia Transferencia { get; set; }
+    public Transferencia? Transferencia { get; set; }
 
     [BindProperty]
     public int QtdParcelas { get; set; }
@@ -127,11 +127,12 @@ public class TransferenciaModel : PageModel
             }
             else if (Transferencia.TipoTransferencia == "C")
             {
-                if (conta.LimiteCredito >= Transferencia.Valor)
+                if (conta.LimiteCreditoDisponivel <= 0)
                 {
-                    conta.LimiteCredito -= Transferencia.Valor;
+                    ModelState.AddModelError("", "Limite de crédito insuficiente.");
+                    return Page();
                 }
-                else
+                else if (conta.LimiteCreditoDisponivel < Transferencia.Valor)
                 {
                     ModelState.AddModelError("", "Limite de crédito insuficiente.");
                     return Page();
@@ -145,6 +146,9 @@ public class TransferenciaModel : PageModel
                 decimal valorParcela = Math.Round(valorComJuros / QtdParcelas, 2);
                 ValorParcelaCalculado = valorParcela;
 
+                // Atualiza o limite, mesmo que fique negativo
+                conta.LimiteCreditoDisponivel -= valorComJuros;
+
                 for (int i = 0; i < QtdParcelas; i++)
                 {
                     int mesPagamento = dataSimulada.MesAtual + MesSelecionado + i;
@@ -156,11 +160,12 @@ public class TransferenciaModel : PageModel
 
                     if (faturaExistente != null)
                     {
-                        faturaExistente.ValorFatura += valorParcela;
+                        faturaExistente.ValorFaturaAtual += valorParcela;
+                        faturaExistente.ValorFaturaPago += valorParcela;
 
                         if (faturaExistente.Efetivado)
                         {
-                            faturaExistente.Efetivado = false; // ← resetar se ela estiver como paga
+                            faturaExistente.Efetivado = false;
                         }
                     }
                     else
@@ -168,18 +173,46 @@ public class TransferenciaModel : PageModel
                         var novaFatura = new Fatura
                         {
                             ContaBancariaID = conta.ID,
-                            ValorFatura = valorParcela,
+                            ValorFaturaAtual = valorParcela,
+                            ValorFaturaPago = valorParcela,
                             MesPagamento = mesPagamento,
                             AnoPagamento = anoPagamento,
                             Efetivado = false
                         };
                         _db.Faturas.Add(novaFatura);
                     }
+
+                    var extrato = new ExtratoFaturas
+                    {
+                        ContaBancariaID = conta.ID,
+                        ValorTransferencia = valorParcela,
+                        Descricao = Transferencia.Descricao,
+                        MesPagamento = mesPagamento,
+                        AnoPagamento = anoPagamento,
+                        QtdParcelas = QtdParcelas
+                    };
+                    _db.ExtratoFaturas.Add(extrato);
                 }
             }
 
             _db.Transferencias.Add(novaTransferencia);
+
+            string tipoExtrato = Transferencia.TipoTransferencia == "D" ? "Transferência - Débito" : "Transferência - Crédito";
+
+            _db.Extratos.Add(new Extrato
+            {
+                ContaBancariaID = conta.ID,
+                TipoTransacao = tipoExtrato,
+                Valor = Transferencia.Valor,
+                Descricao = Transferencia.Descricao,
+                DiaTransacao = dataSimulada.DiaAtual,
+                MesTransacao = dataSimulada.MesAtual,
+                AnoTransacao = dataSimulada.AnoAtual,
+                Timestamp = DateTime.Now
+            });
+
             await _db.SaveChangesAsync();
+
             TempData["Valor"] = Transferencia.Valor.ToString("F2");
             TempData["Tipo"] = Transferencia.TipoTransferencia == "D" ? "Débito" : "Crédito";
             TempData["Descricao"] = Transferencia.Descricao ?? "-";

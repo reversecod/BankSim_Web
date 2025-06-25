@@ -14,15 +14,16 @@ namespace Banksim_Web.Models
 
         [ForeignKey("ContaBancariaID")]
         [ValidateNever]
-        public ContaBancaria ContaBancaria { get; set; }
+        public ContaBancaria? ContaBancaria { get; set; }
 
         [Required]
         public string? TipoTransacao { get; set; }
-
         public decimal Valor { get; set; }
+        public string? Descricao { get; set; }
         public int DiaTransacao { get; set; }
         public int MesTransacao { get; set; }
         public int AnoTransacao { get; set; }
+        public DateTime Timestamp { get; set; }
 
     }
 }

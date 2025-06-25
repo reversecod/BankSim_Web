@@ -63,6 +63,19 @@ public class DepositoModel : PageModel
         conta.Saldo += Deposito.Valor;
 
         _db.Depositos.Add(novoDeposito);
+
+        _db.Extratos.Add(new Extrato
+        {
+            ContaBancariaID = conta.ID,
+            TipoTransacao = "Depósito",
+            Valor = Deposito.Valor,
+            Descricao = Deposito.Descricao,
+            DiaTransacao = dataSimulada.DiaAtual,
+            MesTransacao = dataSimulada.MesAtual,
+            AnoTransacao = dataSimulada.AnoAtual,
+            Timestamp = DateTime.Now
+        });
+
         await _db.SaveChangesAsync();
 
         TempData["Valor"] = Deposito.Valor.ToString("F2");

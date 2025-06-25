@@ -5331,23 +5331,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\OTAVIO\\.nuget\\packages\\": {},
+    "C:\\Users\\otavio_ti\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OTAVIO\\Documents\\codigos_otavio\\BankSim_Web\\Banksim_Web.csproj",
+      "projectUniqueName": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Banksim_Web.csproj",
       "projectName": "Banksim_Web",
-      "projectPath": "C:\\Users\\OTAVIO\\Documents\\codigos_otavio\\BankSim_Web\\Banksim_Web.csproj",
-      "packagesPath": "C:\\Users\\OTAVIO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OTAVIO\\Documents\\codigos_otavio\\BankSim_Web\\obj\\",
+      "projectPath": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Banksim_Web.csproj",
+      "packagesPath": "C:\\Users\\otavio_ti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\OTAVIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\otavio_ti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5418,7 +5418,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

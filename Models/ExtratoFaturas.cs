@@ -5,34 +5,21 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Banksim_Web.Models
 {
-    public class Emprestimo
+    public class ExtratoFaturas
     {
         public int ID { get; set; }
 
         [Required]
         public int ContaBancariaID { get; set; }
 
-        [Required]
-        public string? NomeEmprestimo { get; set; }
-
         [ForeignKey("ContaBancariaID")]
         [ValidateNever]
         public ContaBancaria? ContaBancaria { get; set; }
-
-        [Required]
-        public decimal ValorEmprestimo { get; set; }
-
-        [Required]
-        public int QntdParcela { get; set; } = 1;
-
-        [Required]
-        public int diaPagamento { get; set; } = 28;
-
-        [Required]
-        public int MesInicioPagamento { get; set; }
-
-        [Required]
-        public bool Pago { get; set; } = false;
+        public decimal ValorTransferencia { get; set; }
+        public string? Descricao { get; set; }
+        public int MesPagamento { get; set; }
+        public int AnoPagamento { get; set; }
+        public int QtdParcelas { get; set; }
 
     }
 }

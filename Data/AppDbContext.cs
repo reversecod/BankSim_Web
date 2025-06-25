@@ -15,6 +15,8 @@ public class AppDbContext : DbContext
     public DbSet<Emprestimo> Emprestimos { get; set; }
     public DbSet<Fatura> Faturas { get; set; }
     public DbSet<Extrato> Extratos { get; set; }
+    public DbSet<ExtratoFaturas> ExtratoFaturas { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -29,6 +31,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Emprestimo>().ToTable("Emprestimos");
         modelBuilder.Entity<Fatura>().ToTable("Fatura"); // singular conforme o banco
         modelBuilder.Entity<Extrato>().ToTable("Extrato");
+        modelBuilder.Entity<ExtratoFaturas>().ToTable("ExtratoFaturas");
 
         // Relacionamento 1:1 entre ContaBancaria e DataSimulada
         modelBuilder.Entity<DataSimulada>()

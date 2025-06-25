@@ -22,7 +22,8 @@ namespace Banksim_Web.Models
 
         [Required]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal LimiteCredito { get; set; } = 0;
+        public decimal LimiteCreditoInicial { get; set; } = 0;
+        public decimal LimiteCreditoDisponivel { get; set; } = 0;
 
         public int DiaFatura { get; set; } = 25;
 

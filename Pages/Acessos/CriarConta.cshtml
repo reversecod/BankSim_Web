@@ -183,12 +183,12 @@
                         <span asp-validation-for="Conta.Saldo" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Conta.LimiteCredito">Limite de Crédito:</label>
+                        <label asp-for="Conta.LimiteCreditoInicial">Limite de Crédito:</label>
                         <div class="input-prefix">
                             <span class="prefix">R$</span>
-                            <input asp-for="Conta.LimiteCredito" type="number" step="0.01" />
+                            <input asp-for="Conta.LimiteCreditoInicial" type="number" step="0.01" />
                         </div>
-                        <span asp-validation-for="Conta.LimiteCredito" class="text-danger"></span>
+                        <span asp-validation-for="Conta.LimiteCreditoInicial" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Conta.PorcentagemEmprestimo">Porcentagem padrão do Juros de Empréstimos (%):</label>
@@ -197,12 +197,12 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Conta.DiaFatura">Dia padrão do Fechamento de Faturas:</label>
-                        <input asp-for="Conta.DiaFatura" type="number" min="1" max="31" />
+                        <input asp-for="Conta.DiaFatura" type="number" min="1" max="28" />
                         <span asp-validation-for="Conta.DiaFatura" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Conta.DiaPagamentoFatura">Dia padrão do Pagamento de Faturas:</label>
-                        <input asp-for="Conta.DiaPagamentoFatura" type="number" min="1" max="31" />
+                        <input asp-for="Conta.DiaPagamentoFatura" type="number" min="1" max="28" />
                         <span asp-validation-for="Conta.DiaPagamentoFatura" class="text-danger"></span>
                     </div>
                     <div class="form-group">

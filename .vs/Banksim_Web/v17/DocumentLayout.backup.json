@@ -3,16 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\emprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\emprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\emprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\emprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\pagamentoemprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\pagamentoemprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\statusemprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\statusemprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\statusemprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\statusemprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\pagamentoemprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\pagamentoemprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\emprestimo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\emprestimo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\datasimulada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\datasimulada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\contabancaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\contabancaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\enums\\meses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:enums\\meses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\caixinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\caixinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\extratofaturas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\extratofaturas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\extrato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\extrato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\transferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\transferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\fatura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\fatura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\transferencia\\transferencia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\transferencia\\transferencia.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\transferencia\\transferencia.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\transferencia\\transferencia.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\emprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\emprestimo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\acessos\\criarconta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -55,10 +115,6 @@
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\faturas\\detalhefatura.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\fatura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\fatura.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\pagesposcarregamento\\faturasucesso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\pagesposcarregamento\\faturasucesso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -67,48 +123,20 @@
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\pagesposcarregamento\\faturasucesso.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\extratofaturas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\extratofaturas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\transferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\transferencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\acessos\\criarconta.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\acessos\\criarconta.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\contabancaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\contabancaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\extrato\\extrato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\extrato\\extrato.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\extrato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\extrato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\emprestimo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\emprestimo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\deposito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\deposito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\datasimulada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\datasimulada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\caixinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:models\\caixinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\anotacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -133,10 +161,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\acessos\\registro.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\acessos\\registro.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\emprestimo\\emprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\emprestimo\\emprestimo.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\acessos\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -190,17 +214,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Emprestimo.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\Emprestimo.cshtml",
               "RelativeDocumentMoniker": "Pages\\Emprestimo\\Emprestimo.cshtml",
               "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\Emprestimo.cshtml",
               "RelativeToolTip": "Pages\\Emprestimo\\Emprestimo.cshtml",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAuwIoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAIwKsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-06T16:47:49.473Z",
               "IsPinned": true,
@@ -224,202 +248,163 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TodasFaturas.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Faturas\\TodasFaturas.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml.cs",
-              "RelativeToolTip": "Pages\\Faturas\\TodasFaturas.cshtml.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T12:52:59.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Fatura.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Fatura.cs",
-              "RelativeDocumentMoniker": "Models\\Fatura.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Fatura.cs",
-              "RelativeToolTip": "Models\\Fatura.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAMwBEAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:13:36.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DetalheFatura.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Faturas\\DetalheFatura.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml.cs",
-              "RelativeToolTip": "Pages\\Faturas\\DetalheFatura.cshtml.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAuwFkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T12:52:29.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Transferencia.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Transferencia\\Transferencia.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml.cs",
-              "RelativeToolTip": "Pages\\Transferencia\\Transferencia.cshtml.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAqwOMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T16:46:53.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Transferencia.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Transferencia\\Transferencia.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml",
-              "RelativeToolTip": "Pages\\Transferencia\\Transferencia.cshtml",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAmwL0AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T16:45:53.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAIAwwCYAAAAAAAAAAAAAAA==",
+              "Title": "Emprestimo.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\Emprestimo.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Emprestimo\\Emprestimo.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\Emprestimo.cshtml.cs",
+              "RelativeToolTip": "Pages\\Emprestimo\\Emprestimo.cshtml.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAQwGsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T20:00:36.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Home.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Home.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml",
-              "RelativeToolTip": "Pages\\Home.cshtml",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAuwLoAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T16:44:50.192Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Home.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Home.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml.cs",
-              "RelativeToolTip": "Pages\\Home.cshtml.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowEAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:33:52.623Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CriarConta.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Acessos\\CriarConta.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml",
-              "RelativeToolTip": "Pages\\Acessos\\CriarConta.cshtml",
-              "ViewState": "AgIAALUAAAAAAAAAAAAIwLsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T17:27:38.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TodasFaturas.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Faturas\\TodasFaturas.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml",
-              "RelativeToolTip": "Pages\\Faturas\\TodasFaturas.cshtml",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAgwGgAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T12:52:46.62Z",
+              "WhenOpened": "2025-06-06T16:47:54.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Faturas.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Faturas\\Faturas.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml.cs",
-              "RelativeToolTip": "Pages\\Faturas\\Faturas.cshtml.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAuwHcAAAAtAAAAAAAAAA==",
+              "Title": "DataSimulada.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\DataSimulada.cs",
+              "RelativeDocumentMoniker": "Models\\DataSimulada.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\DataSimulada.cs",
+              "RelativeToolTip": "Models\\DataSimulada.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAwwEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:27:55.676Z",
+              "WhenOpened": "2025-06-06T17:10:34.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Emprestimo.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Emprestimo.cs",
+              "RelativeDocumentMoniker": "Models\\Emprestimo.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Emprestimo.cs",
+              "RelativeToolTip": "Models\\Emprestimo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:40:01.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StatusEmprestimo.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\StatusEmprestimo.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Emprestimo\\StatusEmprestimo.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\StatusEmprestimo.cshtml",
+              "RelativeToolTip": "Pages\\Emprestimo\\StatusEmprestimo.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAlwFgAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T14:16:14.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StatusEmprestimo.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\StatusEmprestimo.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Emprestimo\\StatusEmprestimo.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\StatusEmprestimo.cshtml.cs",
+              "RelativeToolTip": "Pages\\Emprestimo\\StatusEmprestimo.cshtml.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAuwBEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T14:16:52.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-26T19:27:26.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PagamentoEmprestimo.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\PagamentoEmprestimo.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Emprestimo\\PagamentoEmprestimo.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\PagamentoEmprestimo.cshtml.cs",
+              "RelativeToolTip": "Pages\\Emprestimo\\PagamentoEmprestimo.cshtml.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAADwv0kAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:05:28.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PagamentoEmprestimo.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\PagamentoEmprestimo.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Emprestimo\\PagamentoEmprestimo.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\PagamentoEmprestimo.cshtml",
+              "RelativeToolTip": "Pages\\Emprestimo\\PagamentoEmprestimo.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAQwG8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T20:03:27.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ContaBancaria.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\ContaBancaria.cs",
+              "RelativeDocumentMoniker": "Models\\ContaBancaria.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\ContaBancaria.cs",
+              "RelativeToolTip": "Models\\ContaBancaria.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAswBkAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T16:53:36.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "Faturas.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Faturas\\Faturas.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml",
-              "RelativeToolTip": "Pages\\Faturas\\Faturas.cshtml",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAuwIgAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T19:22:48.504Z",
+              "Title": "Meses.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Enums\\Meses.cs",
+              "RelativeDocumentMoniker": "Enums\\Meses.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Enums\\Meses.cs",
+              "RelativeToolTip": "Enums\\Meses.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:32:07.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "DetalheFatura.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Faturas\\DetalheFatura.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml",
-              "RelativeToolTip": "Pages\\Faturas\\DetalheFatura.cshtml",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAWwHYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T12:52:15.989Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "FaturaSucesso.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
-              "RelativeToolTip": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Title": "Caixinha.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Caixinha.cs",
+              "RelativeDocumentMoniker": "Models\\Caixinha.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Caixinha.cs",
+              "RelativeToolTip": "Models\\Caixinha.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:26:47.56Z",
+              "WhenOpened": "2025-06-06T17:14:03.571Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "FaturaSucesso.cshtml",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
-              "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
-              "RelativeToolTip": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAmwFkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T19:22:12.603Z",
+              "DocumentIndex": 13,
+              "Title": "Extrato.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Extrato.cs",
+              "RelativeDocumentMoniker": "Models\\Extrato.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Extrato.cs",
+              "RelativeToolTip": "Models\\Extrato.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T17:10:48.054Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 12,
               "Title": "ExtratoFaturas.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\ExtratoFaturas.cs",
               "RelativeDocumentMoniker": "Models\\ExtratoFaturas.cs",
@@ -432,7 +417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 14,
               "Title": "Transferencia.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Transferencia.cs",
               "RelativeDocumentMoniker": "Models\\Transferencia.cs",
@@ -445,7 +430,189 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Fatura.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Fatura.cs",
+              "RelativeDocumentMoniker": "Models\\Fatura.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Fatura.cs",
+              "RelativeToolTip": "Models\\Fatura.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAMwBEAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T17:13:36.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Transferencia.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Transferencia\\Transferencia.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml.cs",
+              "RelativeToolTip": "Pages\\Transferencia\\Transferencia.cshtml.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAqwOMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T16:46:53.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Home.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Home.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml.cs",
+              "RelativeToolTip": "Pages\\Home.cshtml.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAowEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T19:33:52.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Home.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Home.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml",
+              "RelativeToolTip": "Pages\\Home.cshtml",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAuwLoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T16:44:50.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAIAwwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T20:00:36.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Transferencia.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Transferencia\\Transferencia.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Transferencia\\Transferencia.cshtml",
+              "RelativeToolTip": "Pages\\Transferencia\\Transferencia.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAIMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T16:45:53.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DetalheFatura.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Faturas\\DetalheFatura.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml.cs",
+              "RelativeToolTip": "Pages\\Faturas\\DetalheFatura.cshtml.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAuwFkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T12:52:29.531Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "CriarConta.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Acessos\\CriarConta.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml",
+              "RelativeToolTip": "Pages\\Acessos\\CriarConta.cshtml",
+              "ViewState": "AgIAALUAAAAAAAAAAAAIwLsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T17:27:38.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TodasFaturas.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Faturas\\TodasFaturas.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml.cs",
+              "RelativeToolTip": "Pages\\Faturas\\TodasFaturas.cshtml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T12:52:59.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TodasFaturas.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Faturas\\TodasFaturas.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\TodasFaturas.cshtml",
+              "RelativeToolTip": "Pages\\Faturas\\TodasFaturas.cshtml",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAgwGgAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T12:52:46.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Faturas.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Faturas\\Faturas.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml.cs",
+              "RelativeToolTip": "Pages\\Faturas\\Faturas.cshtml.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAuwHcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T19:27:55.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Faturas.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Faturas\\Faturas.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\Faturas.cshtml",
+              "RelativeToolTip": "Pages\\Faturas\\Faturas.cshtml",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAuwIgAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T19:22:48.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DetalheFatura.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Faturas\\DetalheFatura.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Faturas\\DetalheFatura.cshtml",
+              "RelativeToolTip": "Pages\\Faturas\\DetalheFatura.cshtml",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAWwHYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T12:52:15.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "FaturaSucesso.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
+              "RelativeToolTip": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T19:26:47.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "FaturaSucesso.cshtml",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
+              "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
+              "RelativeToolTip": "Pages\\PagesPosCarregamento\\FaturaSucesso.cshtml",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAmwFkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T19:22:12.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
               "Title": "CriarConta.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Acessos\\CriarConta.cshtml.cs",
@@ -453,25 +620,11 @@
               "RelativeToolTip": "Pages\\Acessos\\CriarConta.cshtml.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAAAuwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:27:47.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:27:47.842Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ContaBancaria.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\ContaBancaria.cs",
-              "RelativeDocumentMoniker": "Models\\ContaBancaria.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\ContaBancaria.cs",
-              "RelativeToolTip": "Models\\ContaBancaria.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T16:53:36.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 31,
               "Title": "Extrato.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Extrato\\Extrato.cshtml",
               "RelativeDocumentMoniker": "Pages\\Extrato\\Extrato.cshtml",
@@ -483,7 +636,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 32,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "Models\\Usuario.cs",
@@ -495,31 +648,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Extrato.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Extrato.cs",
-              "RelativeDocumentMoniker": "Models\\Extrato.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Extrato.cs",
-              "RelativeToolTip": "Models\\Extrato.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:10:48.054Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Emprestimo.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Emprestimo.cs",
-              "RelativeDocumentMoniker": "Models\\Emprestimo.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Emprestimo.cs",
-              "RelativeToolTip": "Models\\Emprestimo.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T11:40:01.924Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "Deposito.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Deposito.cs",
               "RelativeDocumentMoniker": "Models\\Deposito.cs",
@@ -531,31 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "DataSimulada.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\DataSimulada.cs",
-              "RelativeDocumentMoniker": "Models\\DataSimulada.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\DataSimulada.cs",
-              "RelativeToolTip": "Models\\DataSimulada.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:10:34.864Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Caixinha.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Caixinha.cs",
-              "RelativeDocumentMoniker": "Models\\Caixinha.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Caixinha.cs",
-              "RelativeToolTip": "Models\\Caixinha.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:14:03.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 34,
               "Title": "Anotacao.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\Anotacao.cs",
               "RelativeDocumentMoniker": "Models\\Anotacao.cs",
@@ -567,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 35,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -579,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 37,
               "Title": "Deposito.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Deposito\\Deposito.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Deposito\\Deposito.cshtml.cs",
@@ -591,7 +696,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 36,
               "Title": "Extrato.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Extrato\\Extrato.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Extrato\\Extrato.cshtml.cs",
@@ -603,7 +708,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 38,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\Acessos\\Login.cshtml",
@@ -615,7 +720,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 39,
               "Title": "Registro.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\Registro.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Acessos\\Registro.cshtml.cs",
@@ -627,19 +732,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Emprestimo.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\Emprestimo.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Emprestimo\\Emprestimo.cshtml.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Emprestimo\\Emprestimo.cshtml.cs",
-              "RelativeToolTip": "Pages\\Emprestimo\\Emprestimo.cshtml.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAqwFUAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T16:47:54.83Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 47,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
@@ -651,7 +744,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 40,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Acessos\\Login.cshtml.cs",
@@ -663,7 +756,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 48,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
@@ -675,7 +768,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 46,
               "Title": "Registro.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\Registro.cshtml",
               "RelativeDocumentMoniker": "Pages\\Acessos\\Registro.cshtml",
@@ -687,7 +780,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 45,
               "Title": "Calendario.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Calendario\\Calendario.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Calendario\\Calendario.cshtml.cs",
@@ -699,7 +792,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 41,
               "Title": "Logout.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Logout.cshtml",
               "RelativeDocumentMoniker": "Pages\\Logout.cshtml",
@@ -711,7 +804,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 42,
               "Title": "Logout.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Logout.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Logout.cshtml.cs",
@@ -723,7 +816,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 50,
               "Title": "EmprestimoSucesso.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\EmprestimoSucesso.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\EmprestimoSucesso.cshtml.cs",
@@ -735,7 +828,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 49,
               "Title": "EmprestimoSucesso.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\EmprestimoSucesso.cshtml",
               "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\EmprestimoSucesso.cshtml",
@@ -747,7 +840,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 44,
               "Title": "DepositoSucesso.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\DepositoSucesso.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\DepositoSucesso.cshtml.cs",
@@ -759,7 +852,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 43,
               "Title": "DepositoSucesso.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\PagesPosCarregamento\\DepositoSucesso.cshtml",
               "RelativeDocumentMoniker": "Pages\\PagesPosCarregamento\\DepositoSucesso.cshtml",

@@ -23,6 +23,9 @@ namespace Banksim_Web.Models
         public decimal ValorEmprestimo { get; set; }
 
         [Required]
+        public decimal ValorPago { get; set; } = 0;
+
+        [Required]
         public int QntdParcela { get; set; } = 1;
 
         [Required]
@@ -30,6 +33,9 @@ namespace Banksim_Web.Models
 
         [Required]
         public int MesInicioPagamento { get; set; }
+        [Required]
+
+        public int MesProxPagamento { get; set; }
 
         [Required]
         public bool Pago { get; set; } = false;

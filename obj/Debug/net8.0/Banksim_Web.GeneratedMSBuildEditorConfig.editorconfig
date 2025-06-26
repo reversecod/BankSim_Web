@@ -52,6 +52,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wcmVzdGltb1xFbXByZXN0aW1vLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Emprestimo/PagamentoEmprestimo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wcmVzdGltb1xQYWdhbWVudG9FbXByZXN0aW1vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Emprestimo/StatusEmprestimo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wcmVzdGltb1xTdGF0dXNFbXByZXN0aW1vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

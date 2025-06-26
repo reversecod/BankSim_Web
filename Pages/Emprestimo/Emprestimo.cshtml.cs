@@ -36,8 +36,16 @@ public class EmprestimoModel : PageModel
         var conta = _db.ContasBancarias.FirstOrDefault(c => c.UsuarioID == userId);
         if (conta == null) return RedirectToPage("/Erro");
 
-        PorcentagemJuros = conta.PorcentagemEmprestimo;
+        // Verifica se já há um empréstimo em aberto
+        var emprestimoExistente = _db.Emprestimos
+            .FirstOrDefault(e => e.ContaBancariaID == conta.ID && !e.Pago);
 
+        if (emprestimoExistente != null)
+        {
+            return RedirectToPage("/Emprestimo/StatusEmprestimo");
+        }
+
+        PorcentagemJuros = conta.PorcentagemEmprestimo;
         return Page();
     }
 
@@ -55,20 +63,33 @@ public class EmprestimoModel : PageModel
 
         if (emprestimoExistente != null)
         {
-            ModelState.AddModelError("", "Você já possui um empréstimo em andamento. Pague o empréstimo atual antes de solicitar outro.");
-            return Page();
+            return RedirectToPage("/Emprestimo/StatusEmprestimo");
         }
 
-        var mesInicio = (dataSimulada.MesAtual % 12) + 1;
+        int mesBase = dataSimulada.MesAtual;
+        int anoBase = dataSimulada.AnoAtual;
+
+        int diasFaltando = DiaPagamento - dataSimulada.DiaAtual;
+        if (diasFaltando <= 7 && diasFaltando >= 0)
+        {
+            mesBase++;
+            if (mesBase > 12)
+            {
+                mesBase = 1;
+                anoBase++;
+            }
+        }
 
         var novoEmprestimo = new Emprestimo
         {
             ContaBancariaID = conta.ID,
-            NomeEmprestimo = NomeEmprestimo,
+            NomeEmprestimo = $"{NomeEmprestimo} • {QntdParcela} parcela(s)",
             ValorEmprestimo = ValorEmprestimo,
             QntdParcela = QntdParcela,
             diaPagamento = DiaPagamento,
-            MesInicioPagamento = mesInicio,
+            MesInicioPagamento = mesBase,
+            MesProxPagamento = mesBase,
+            ValorPago = 0, // começa em zero
             Pago = false
         };
 
@@ -79,7 +100,7 @@ public class EmprestimoModel : PageModel
             ContaBancariaID = conta.ID,
             TipoTransacao = "Empréstimo",
             Valor = ValorEmprestimo,
-            Descricao = NomeEmprestimo,
+            Descricao = $"{NomeEmprestimo} • {QntdParcela} parcela(s)",
             DiaTransacao = dataSimulada.DiaAtual,
             MesTransacao = dataSimulada.MesAtual,
             AnoTransacao = dataSimulada.AnoAtual,
@@ -90,6 +111,7 @@ public class EmprestimoModel : PageModel
 
         TempData["NomeEmprestimo"] = NomeEmprestimo;
         TempData["ValorEmprestimo"] = ValorEmprestimo.ToString("F2");
+
         return RedirectToPage("/PagesPosCarregamento/EmprestimoSucesso");
     }
 }

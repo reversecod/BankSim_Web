@@ -1,0 +1,148 @@
+﻿@page
+@model Banksim_Web.Pages.Emprestimo.PagamentoEmprestimoModel
+@{
+    ViewData["Title"] = "Pagamento de Empréstimo";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Pagamento de Empréstimo - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .info-value {
+            color: #1065ee;
+            font-size: 1.1rem;
+        }
+
+        .parcela-checkbox {
+            margin-top: 15px;
+        }
+
+        .valor-total {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+        }
+
+        .btn-pagar {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-pagar:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Pagamento de Empréstimo</h2>
+
+        <div class="info-label">Nome do Empréstimo:</div>
+        <div class="info-value">@Model.EmprestimoAtual?.NomeEmprestimo</div>
+
+        <div class="info-label">Valor de cada parcela:</div>
+        <div class="info-value">R$ @Model.ValorParcela.ToString("F2")</div>
+
+        <form method="post">
+            <div class="info-label">Escolha as parcelas que deseja pagar:</div>
+
+            @for (int i = 0; i < Model.ParcelasDisponiveis.Count; i++)
+            {
+                var p = Model.ParcelasDisponiveis[i];
+                <div class="parcela-checkbox">
+                    <input type="checkbox" name="ParcelasSelecionadas" value="@p.Mes" onchange="calcularTotal()">
+                    @($"Parcela {i + 1}: vencimento em {p.MesNome}/{p.Ano} - R$ {Model.ValorParcela:F2}")
+                </div>
+            }
+
+            <div class="valor-total">
+                Total a pagar: <span id="totalSelecionado">R$ 0,00</span>
+            </div>
+
+            <button type="submit" class="btn-pagar" id="botaoPagar" disabled>Pagar Parcelas</button>
+        </form>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const valorParcela = @Model.ValorParcela.ToString("F2").Replace(",", ".");
+            const checkboxes = document.querySelectorAll('input[name="ParcelasSelecionadas"]:checked');
+            const total = (checkboxes.length * parseFloat(valorParcela)).toFixed(2);
+
+            document.getElementById("totalSelecionado").innerText = `R$ ${total.replace(".", ",")}`;
+            document.getElementById("botaoPagar").disabled = checkboxes.length === 0;
+        }
+    </script>
+</body>
+</html>

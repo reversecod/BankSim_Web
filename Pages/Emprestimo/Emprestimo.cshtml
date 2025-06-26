@@ -147,21 +147,22 @@
     </div>
 
     <script>
-        function truncarParaDuasCasas(valor) {
-            return Math.floor(valor * 100) / 100;
-        }
-
         function calcularParcelas() {
             const valor = parseFloat(document.querySelector('[name="ValorEmprestimo"]').value || '0');
             const parcelas = parseInt(document.querySelector('[name="QntdParcela"]').value || '1');
-            const juros = parseFloat('@Model.PorcentagemJuros');
+            const juros = parseFloat('@Model.PorcentagemJuros') / 100;
 
-            if (valor > 0 && parcelas > 0) {
-                const totalComJuros = truncarParaDuasCasas(valor * (1 + (juros / 100 * parcelas)));
-                const valorParcela = truncarParaDuasCasas(totalComJuros / parcelas);
+            if (valor > 0 && parcelas > 0 && juros > 0) {
+                // Fórmula da Tabela Price
+                const fator = Math.pow(1 + juros, parcelas);
+                const valorParcela = valor * (juros * fator) / (fator - 1);
+                const totalComJuros = valorParcela * parcelas;
 
                 document.getElementById("valorParcela").innerText = `R$ ${valorParcela.toFixed(2)}`;
                 document.getElementById("totalComJuros").innerText = `R$ ${totalComJuros.toFixed(2)}`;
+            } else {
+                document.getElementById("valorParcela").innerText = `R$ 0,00`;
+                document.getElementById("totalComJuros").innerText = `R$ 0,00`;
             }
         }
 

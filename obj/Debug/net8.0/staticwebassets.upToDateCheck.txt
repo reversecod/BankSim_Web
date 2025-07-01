@@ -3,6 +3,12 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\BankSimIcon.ico
 wwwroot\img\BankSimIcon.png
+wwwroot\img\caixinhas\25b1b1d6-2d96-414d-9004-49a1d841e40a.png
+wwwroot\img\caixinhas\341b48f8-ae96-433d-9432-25f5b815747f.png
+wwwroot\img\caixinhas\3a8c6087-d930-4ae8-8f6a-468e5cebb4c9.png
+wwwroot\img\caixinhas\be65d0c6-dd8c-4342-a984-c179c6eea953.png
+wwwroot\img\caixinhas\fc27aeaf-f0d2-4b88-a47c-f7a2d135b208.png
+wwwroot\img\caixinhas\fea8c749-8325-4b42-8b13-6e30281b0be0.png
 wwwroot\img\login-image.png
 wwwroot\img\login-image2.png
 wwwroot\img\logoBKS.png

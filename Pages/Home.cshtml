@@ -1,4 +1,4 @@
-﻿@page 
+﻿@page
 @using Microsoft.AspNetCore.Authorization
 @model HomeModel
 @attribute [Authorize]
@@ -18,9 +18,35 @@
             height: 100%;
         }
 
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+            .top-bar h2 {
+                margin: 0;
+                color: #2198F4;
+            }
+
+        .logo-img {
+            height: 2.5rem;
+            margin-left: 20px;
+        }
+
         .wrapper {
             display: flex;
             min-height: 100vh;
+            padding-top: 60px;
         }
 
         .sidebar {
@@ -31,14 +57,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            left: 0;
         }
 
-        .sidebar h2 {
-            margin: 0 0 20px 0;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-        }
+            .sidebar h2 {
+                margin: 0 0 20px 0;
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+            }
 
         .info-conta {
             text-align: center;
@@ -46,9 +76,9 @@
             font-size: 16px;
         }
 
-        .info-conta p {
-            margin: 4px 0;
-        }
+            .info-conta p {
+                margin: 4px 0;
+            }
 
         .menu {
             display: flex;
@@ -57,21 +87,21 @@
             align-items: center;
         }
 
-        .menu a {
-            margin: 6px 0;
-            width: 90%;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
+            .menu a {
+                margin: 6px 0;
+                width: 90%;
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                text-align: center;
+                padding: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
 
-        .menu a:hover {
-            background-color: #1a7ed0;
-        }
+                .menu a:hover {
+                    background-color: #1a7ed0;
+                }
 
         .logout {
             margin-top: auto;
@@ -87,68 +117,49 @@
             justify-content: center;
             align-items: center;
             padding: 40px;
-        }
-
-        .content h1 {
-            font-size: 36px;
-            color: #2198F4;
-        }
-
-        /* Modal */
-        #modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+            margin-left: 250px;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 2000;
-            justify-content: center;
+        }
+
+            .content h1 {
+                font-size: 36px;
+                color: #2198F4;
+            }
+
+        .data-controls {
+            display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        #modal .modal-box {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
+            .data-controls a {
+                font-size: 16px;
+                text-decoration: none;
+                padding: 6px 12px;
+                background-color: #2198F4;
+                color: white;
+                border-radius: 6px;
+            }
 
-        #modal input {
-            width: 100%;
-            padding: 10px;
-            margin: 15px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+        .data-wrapper {
+            position: absolute;
+            top: 70px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        #modal button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 6px;
-            background-color: #2198F4;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        #modal .cancelar {
-            background: none;
-            color: #2198F4;
-            margin-top: 10px;
-        }
-
     </style>
 </head>
 <body>
+    <div class="top-bar">
+        <a asp-page="/Home">
+            <img src="~/img/logoBKS.png" alt="Logo BankSim" class="logo-img" />
+        </a>
+    </div>
+
     <div class="wrapper">
         <div class="sidebar">
-            <h2>BankSim</h2>
-
             <div class="info-conta">
                 <p><strong>Saldo:</strong> R$ @Model.Saldo.ToString("F2")</p>
                 <p>
@@ -166,7 +177,7 @@
                 <a asp-page="/Faturas/Faturas">Faturas</a>
                 <a asp-page="/Caixinha/Caixinha">Caixinha</a>
                 <a asp-page="/Extrato/Extrato">Extrato</a>
-                <a asp-page="/Anotacoes/Anotacoes">Anotações</a>
+                <a asp-page="/Anotacao/Anotacoes">Anotações</a>
                 <a asp-page="/Calendario/Calendario">Calendário</a>
             </div>
 
@@ -178,35 +189,11 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="modal">
-        <div class="modal-box">
-            <h3>Meus limites</h3>
-            <p>R$ @Model.LimiteCreditoInicial.ToString("F2")</p>
-            <form method="post">
-                <div style="display: flex; align-items: center;">
-                    <span style="margin-right: 5px;">R$</span>
-                    <input asp-for="NovoLimite" type="number" step="0.01" placeholder="Novo limite" required />
-                </div>
-                <button type="submit">Salvar</button>
-            </form>
-            @if (!ViewData.ModelState.IsValid)
-            {
-                <div style="color: red; margin-top: 10px;">
-                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                </div>
-            }
-            <button class="cancelar" onclick="fecharModal()">Cancelar</button>
+    <div class="data-wrapper">
+        <div class="data-controls">
+            <a asp-page="/Home" asp-route-AcaoData="avancar">Avançar Dia</a>
+            <span>@Model.DataSimulada.ToString("dd/MM/yyyy")</span>
         </div>
     </div>
-
-    <script>
-        function abrirModal() {
-            document.getElementById("modal").style.display = "flex";
-        }
-        function fecharModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-    </script>
 </body>
 </html>

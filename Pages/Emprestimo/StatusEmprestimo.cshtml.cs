@@ -17,7 +17,9 @@ namespace Banksim_Web.Pages.Emprestimo
         public Models.Emprestimo? Emprestimo { get; set; }
         public decimal ValorTotalComJuros { get; set; }
         public decimal ValorPago { get; set; }
-        public decimal ValorRestante { get; set; }
+        public decimal ValorRestante => Emprestimo != null
+        ? Emprestimo.ValorEmprestimo - Emprestimo.ValorPago
+        : 0;
         public string ProximaParcela { get; set; } = "-";
 
         public IActionResult OnGet()
@@ -30,7 +32,6 @@ namespace Banksim_Web.Pages.Emprestimo
             if (Emprestimo == null) return RedirectToPage("/Emprestimo");
 
             ValorTotalComJuros = Emprestimo.ValorEmprestimo;
-            ValorRestante = Math.Max(ValorTotalComJuros - Emprestimo.ValorPago, 0);
 
             if (Emprestimo.MesProxPagamento > 0)
             {
@@ -42,17 +43,10 @@ namespace Banksim_Web.Pages.Emprestimo
 
                 if (Emprestimo.MesProxPagamento >= 1 && Emprestimo.MesProxPagamento <= 12)
                 {
-                    if (Emprestimo.MesProxPagamento < mesAtual)
+                    if (Emprestimo.MesProxPagamento < mesAtual ||
+                       (Emprestimo.MesProxPagamento == mesAtual && Emprestimo.diaPagamento <= dataSimulada.DiaAtual))
+                    {
                         anoAtual++;
-
-                    try
-                    {
-                        var dataProximaParcela = new DateTime(anoAtual, Emprestimo.MesProxPagamento, Emprestimo.diaPagamento);
-                        ProximaParcela = dataProximaParcela.ToString("dd/MM/yyyy");
-                    }
-                    catch
-                    {
-                        ProximaParcela = "-";
                     }
                 }
 

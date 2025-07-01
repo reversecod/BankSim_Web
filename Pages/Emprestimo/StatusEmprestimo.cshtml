@@ -47,6 +47,22 @@
             margin-left: 40px;
         }
 
+        .btn-ir-pagamento {
+            margin-top: 30px;
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-ir-pagamento:hover {
+                background-color: #005ae0;
+            }
+
         .info-label {
             font-weight: bold;
             margin-top: 10px;
@@ -80,7 +96,7 @@
         <div class="info-value">@Model.Emprestimo?.NomeEmprestimo</div>
 
         <div class="info-label">Valor Total:</div>
-        <div class="info-value">R$ @Model.ValorTotalComJuros.ToString("F2")</div>
+        <div class="info-value">R$ @Model.Emprestimo?.ValorEmprestimo.ToString("F2")</div>
 
         <div class="info-label">Valor Pago:</div>
         <div class="info-value">R$ @Model.ValorPago.ToString("F2")</div>
@@ -90,6 +106,10 @@
 
         <div class="info-label">Próxima Parcela:</div>
         <div class="info-value">@Model.ProximaParcela</div>
+
+        <form method="get" asp-page="/Emprestimo/PagamentoEmprestimo">
+            <button type="submit" class="btn-ir-pagamento">Ir para Pagamento</button>
+        </form>
     </div>
 </body>
 </html>

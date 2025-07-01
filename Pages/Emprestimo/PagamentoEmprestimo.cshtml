@@ -114,6 +114,16 @@
         <div class="info-label">Valor de cada parcela:</div>
         <div class="info-value">R$ @Model.ValorParcela.ToString("F2")</div>
 
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div style="color: red; margin-bottom: 20px;">
+                @foreach (var erro in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <div>@erro.ErrorMessage</div>
+                }
+            </div>
+        }
+
         <form method="post">
             <div class="info-label">Escolha as parcelas que deseja pagar:</div>
 
@@ -122,7 +132,7 @@
                 var p = Model.ParcelasDisponiveis[i];
                 <div class="parcela-checkbox">
                     <input type="checkbox" name="ParcelasSelecionadas" value="@p.Mes" onchange="calcularTotal()">
-                    @($"Parcela {i + 1}: vencimento em {p.MesNome}/{p.Ano} - R$ {Model.ValorParcela:F2}")
+                    @($"Parcela {p.NumeroParcela}: vencimento em {p.MesNome}/{p.Ano} - R$ {Model.ValorParcela:F2}")
                 </div>
             }
 

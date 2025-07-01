@@ -16,6 +16,7 @@ namespace Banksim_Web.Models
         public ContaBancaria ContaBancaria { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public string TextoAnotacao { get; set; } = string.Empty;
+        public string CorNota { get; set; } = string.Empty;
 
     }
 }

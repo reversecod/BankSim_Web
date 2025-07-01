@@ -1,0 +1,139 @@
+﻿@page "{id:int}"
+@model EditarCaixinhaModel
+@{
+    ViewData["Title"] = "Editar Caixinha";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 100px auto 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn-salvar {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #1065ee;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-salvar:hover {
+                background-color: #005ae0;
+            }
+
+        .btn-excluir {
+            margin-top: 15px;
+            width: 100%;
+            background-color: #d63031;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-excluir:hover {
+                background-color: #c0392b;
+            }
+
+        .text-danger {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a asp-page="/Home">
+            <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+        </a>
+    </div>
+
+    <div class="form-container">
+        <h2>Editar Caixinha</h2>
+        <partial name="_ValidationScriptsPartial" />
+
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Caixinha.ID" />
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <label asp-for="Caixinha.NomeCaixinha">Nome da Caixinha</label>
+            <input asp-for="Caixinha.NomeCaixinha" type="text" />
+            <span asp-validation-for="Caixinha.NomeCaixinha" class="text-danger"></span>
+
+            <label for="arquivoImagem">Imagem da Caixinha</label>
+            <input asp-for="ArquivoImagem" type="file" />
+            <span asp-validation-for="ArquivoImagem" class="text-danger"></span>
+
+            <button type="submit" class="btn-salvar">Salvar</button>
+        </form>
+
+        <form method="post" asp-page-handler="Excluir">
+            <input type="hidden" asp-for="Caixinha.ID" />
+            <button type="submit" class="btn-excluir">Excluir</button>
+        </form>
+    </div>
+</body>
+</html>

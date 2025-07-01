@@ -1,0 +1,122 @@
+﻿@page "{id:int}"
+@model ResgatarCaixinhaModel
+@{
+    ViewData["Title"] = "Resgatar da Caixinha";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 100px auto 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .btn-submit {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #d63031;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-submit:hover {
+                background-color: #c0392b;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a asp-page="/Home">
+            <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+        </a>
+    </div>
+
+    <div class="form-container">
+        <h2>Resgatar da Caixinha</h2>
+
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" id="valor-disponivel" value="@Model.ValorDisponivel.ToString("F2").Replace(",", ".")" />
+
+            <label>Valor a Resgatar (R$):</label>
+            <input asp-for="Valor" type="number" step="0.01" id="campo-valor" placeholder="Deixe em branco para resgatar tudo" />
+
+            <!-- Valor disponível -->
+            <p style="margin-top: 5px; color: #555; font-size: 0.9rem;">
+                Valor disponível: R$ @Model.ValorDisponivel.ToString("N2")
+            </p>
+
+            <button type="button"
+                    onclick="preencherValorTotal()"
+                    style="margin-top:10px; background:#6c5ce7; color:white; border:none; padding:12px; border-radius:6px; width:100%; font-size:16px; cursor:pointer;">
+                Resgatar valor total
+            </button>
+
+            <button type="submit" class="btn-submit">Confirmar</button>
+        </form>
+    </div>
+
+    <script>
+        function preencherValorTotal() {
+            const valor = document.getElementById('valor-disponivel').value;
+            document.getElementById('campo-valor').value = valor;
+        }
+    </script>
+</body>
+</html>

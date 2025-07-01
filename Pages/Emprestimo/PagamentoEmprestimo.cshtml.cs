@@ -43,13 +43,16 @@ namespace Banksim_Web.Pages.Emprestimo
             EmprestimoAtual = _db.Emprestimos.FirstOrDefault(e => e.ContaBancariaID == conta.ID && !e.Pago);
             if (EmprestimoAtual == null) return RedirectToPage("/Emprestimo");
 
-            var totalComJuros = Math.Round(EmprestimoAtual.ValorEmprestimo * (1 + (decimal)(conta.PorcentagemEmprestimo / 100 * EmprestimoAtual.QntdParcela)), 2);
-            ValorParcela = Math.Round(totalComJuros / EmprestimoAtual.QntdParcela, 2);
+            ValorParcela = EmprestimoAtual.ValorParcela;
 
-            for (int i = 0; i < EmprestimoAtual.QntdParcela; i++)
+            int parcelasRestantes = EmprestimoAtual.QntdParcela;
+            int mesAtual = EmprestimoAtual.MesProxPagamento;
+            int anoAtual = dataSimulada.AnoAtual;
+
+            for (int i = 0; i < parcelasRestantes; i++)
             {
-                int mes = EmprestimoAtual.MesProxPagamento + i;
-                int ano = dataSimulada.AnoAtual;
+                int mes = mesAtual + i;
+                int ano = anoAtual;
 
                 while (mes > 12)
                 {
@@ -59,7 +62,7 @@ namespace Banksim_Web.Pages.Emprestimo
 
                 ParcelasDisponiveis.Add(new ParcelaVisual
                 {
-                    NumeroParcela = i + 1,
+                    NumeroParcela = EmprestimoAtual.TotalParcelas - parcelasRestantes + i + 1,
                     Mes = mes,
                     Ano = ano
                 });
@@ -78,8 +81,7 @@ namespace Banksim_Web.Pages.Emprestimo
             EmprestimoAtual = _db.Emprestimos.FirstOrDefault(e => e.ContaBancariaID == conta.ID && !e.Pago);
             if (EmprestimoAtual == null) return RedirectToPage("/Emprestimo");
 
-            var totalComJuros = Math.Round(EmprestimoAtual.ValorEmprestimo * (1 + (decimal)(conta.PorcentagemEmprestimo / 100 * EmprestimoAtual.QntdParcela)), 2);
-            ValorParcela = Math.Round(totalComJuros / EmprestimoAtual.QntdParcela, 2);
+            ValorParcela = EmprestimoAtual.ValorParcela;
 
             int qtdParcelasPagas = ParcelasSelecionadas.Count;
             decimal valorPago = ValorParcela * qtdParcelasPagas;
@@ -87,26 +89,22 @@ namespace Banksim_Web.Pages.Emprestimo
             if (conta.Saldo < valorPago)
             {
                 ModelState.AddModelError("", "Saldo insuficiente para pagar as parcelas selecionadas.");
-                return await OnGetAsync();
+                OnGet(); // carrega EmprestimoAtual e ParcelasDisponiveis novamente
+                return Page();
             }
 
             conta.Saldo -= valorPago;
 
             EmprestimoAtual.QntdParcela -= qtdParcelasPagas;
-            EmprestimoAtual.ValorEmprestimo -= valorPago;
             EmprestimoAtual.ValorPago += valorPago;
 
-            if (dataSimulada.DiaAtual >= EmprestimoAtual.diaPagamento - 7)
-                EmprestimoAtual.MesProxPagamento += qtdParcelasPagas;
-            else
-                EmprestimoAtual.MesProxPagamento += qtdParcelasPagas + 1;
-
-            if (EmprestimoAtual.MesProxPagamento > 12)
+            EmprestimoAtual.MesProxPagamento += qtdParcelasPagas;
+            while (EmprestimoAtual.MesProxPagamento > 12)
             {
-                EmprestimoAtual.MesProxPagamento = (EmprestimoAtual.MesProxPagamento - 1) % 12 + 1;
+                EmprestimoAtual.MesProxPagamento -= 12;
             }
 
-            if (EmprestimoAtual.QntdParcela <= 0)
+            if (EmprestimoAtual.QntdParcela <= 0 && EmprestimoAtual.ValorPago >= EmprestimoAtual.ValorEmprestimo)
                 EmprestimoAtual.Pago = true;
 
             _db.Extratos.Add(new Models.Extrato
@@ -122,13 +120,9 @@ namespace Banksim_Web.Pages.Emprestimo
             });
 
             await _db.SaveChangesAsync();
-            return RedirectToPage("/PagesPosCarregamento/EmprestimoPagoSucesso");
-        }
-
-        private async Task<IActionResult> OnGetAsync()
-        {
-            OnGet();
-            return Page();
+            TempData["NomeEmprestimo"] = EmprestimoAtual.NomeEmprestimo;
+            TempData["ValorEmprestimo"] = valorPago.ToString("F2");
+            return RedirectToPage("/PagesPosCarregamento/EmprestimoSucesso");
         }
     }
 }

@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.3.1/decimal.min.js"></script>
     <meta charset="utf-8" />
     <title>Transferência - BankSim</title>
     <style>
@@ -146,7 +147,7 @@
             <label asp-for="Transferencia.Valor">Valor da Transferência:</label>
             <div class="input-prefix">
                 <span class="prefix">R$</span>
-                <input asp-for="Transferencia.Valor" type="number" step="0.01" onchange="atualizarParcela()" />
+                <input asp-for="Transferencia.Valor" type="number" step="0.01" min="0.01" onchange="atualizarParcela()" />
             </div>
             <span asp-validation-for="Transferencia.Valor" class="text-danger"></span>
 
@@ -168,7 +169,7 @@
 
             <div id="jurosDiv">
                 <label for="PorcentagemJuros">Porcentagem de Juros (%):</label>
-                <input asp-for="PorcentagemJuros" step="0.01" onchange="atualizarParcela()" />
+                <input asp-for="PorcentagemJuros" type="number" step="0.01" min="0" onchange="atualizarParcela()" />
             </div>
 
             <div id="mesFaturaDiv">
@@ -194,6 +195,18 @@
     </div>
 
     <script>
+                function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
         function mostrarCampos() {
             const tipo = document.querySelector('[name="Transferencia.TipoTransferencia"]').value;
             const divParcelamento = document.getElementById('parcelamentoDiv');
@@ -201,42 +214,65 @@
             const divMes = document.getElementById('mesFaturaDiv');
             const divParcelaInfo = document.getElementById('parcelaInfo');
 
-            if (tipo === 'C') {
-                divParcelamento.style.display = 'block';
-                divJuros.style.display = 'block';
-                divMes.style.display = 'block';
-                divParcelaInfo.style.display = 'block';
-                atualizarParcela();
-            } else {
-                divParcelamento.style.display = 'none';
-                divJuros.style.display = 'none';
-                divMes.style.display = 'none';
-                divParcelaInfo.style.display = 'none';
-            }
+            const deveMostrar = tipo === 'C';
+
+            divParcelamento.style.display = deveMostrar ? 'block' : 'none';
+            divJuros.style.display = deveMostrar ? 'block' : 'none';
+            divMes.style.display = deveMostrar ? 'block' : 'none';
+            divParcelaInfo.style.display = deveMostrar ? 'block' : 'none';
+
+            atualizarParcela();
         }
 
         function atualizarParcela() {
-            const valor = parseFloat(document.querySelector('[name="Transferencia.Valor"]').value || '0');
-            const juros = parseFloat(document.querySelector('[name="PorcentagemJuros"]').value || '0');
-            const parcelas = parseInt(document.querySelector('[name="QtdParcelas"]').value || '1');
-            const resultadoParcela = document.getElementById('parcelaCalculada');
-            const resultadoTotal = document.getElementById('totalCalculado');
+            const tipo = document.querySelector('[name="Transferencia.TipoTransferencia"]').value;
+            if (tipo !== 'C') return;
 
-            if (parcelas < 1 || valor <= 0 || juros < 0) {
-                resultadoParcela.innerText = "Valores inválidos.";
-                resultadoTotal.innerText = "R$ 0,00";
+            const valor = new Decimal(document.querySelector('[name="Transferencia.Valor"]').value || '0');
+            const juros = new Decimal(document.querySelector('[name="PorcentagemJuros"]').value || '0').div(100);
+            const parcelas = parseInt(document.querySelector('[name="QtdParcelas"]').value || '1');
+            const resultadoParcela = document.getElementById('valorParcela');
+            const resultadoTotal = document.getElementById('totalComJuros');
+            const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+
+            if (valor.lte(0)) {
+                resultadoParcela.innerText = "O valor da transferência deve ser maior que zero.";
+                resultadoTotal.innerText = formatter.format(0);
+                return;
+            }
+            if (juros.lt(0)) {
+                resultadoParcela.innerText = "A taxa de juros não pode ser negativa.";
+                resultadoTotal.innerText = formatter.format(0);
+                return;
+            }
+            if (parcelas < 1) {
+                resultadoParcela.innerText = "Selecione pelo menos uma parcela.";
+                resultadoTotal.innerText = formatter.format(0);
                 return;
             }
 
-            const total = Math.floor((valor * (1 + (juros / 100 * parcelas))) * 100) / 100;
-            const valorParcela = Math.floor((total / parcelas) * 100) / 100;
+            let valorParcela, valorTotal;
 
-            resultadoParcela.innerText = `R$ ${valorParcela.toFixed(2)}`;
-            resultadoTotal.innerText = `R$ ${total.toFixed(2)}`;
+            if (juros.equals(0)) {
+                valorParcela = valor.div(parcelas);
+                valorTotal = valor;
+            } else {
+                const fator = Decimal.pow(Decimal.add(1, juros), parcelas);
+                valorParcela = valor.mul(juros.mul(fator)).div(fator.sub(1));
+                valorTotal = valorParcela.mul(parcelas);
+            }
+
+            resultadoParcela.innerText = formatter.format(valorParcela);
+            resultadoTotal.innerText = formatter.format(valorTotal);
         }
 
         document.addEventListener("DOMContentLoaded", function () {
             mostrarCampos();
+            document.querySelector('[name="Transferencia.TipoTransferencia"]').addEventListener("change", mostrarCampos);
+            document.querySelector('[name="Transferencia.Valor"]').addEventListener("input", debounce(atualizarParcela, 300));
+            document.querySelector('[name="PorcentagemJuros"]').addEventListener("input", debounce(atualizarParcela, 300));
+            document.querySelector('[name="QtdParcelas"]').addEventListener("change", atualizarParcela);
+            document.querySelector('[name="MesSelecionado"]').addEventListener("change", atualizarParcela);
         });
     </script>
 </body>

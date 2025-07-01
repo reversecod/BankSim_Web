@@ -375,10 +375,10 @@ C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\staticwebasset
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\Banksim_.98B3C339.Up2Date
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\Banksim_Web.dll
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\refint\Banksim_Web.dll
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\Banksim_Web.pdb
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\Banksim_Web.genruntimeconfig.cache
 C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\ref\Banksim_Web.dll
+C:\Users\otavio_ti\Documents\Codigos\BankSim_Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

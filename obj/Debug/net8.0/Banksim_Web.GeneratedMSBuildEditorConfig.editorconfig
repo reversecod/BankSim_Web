@@ -40,6 +40,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNlc3Nvc1xSZWdpc3Ryby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Anotacao/Anotacoes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5vdGFjYW9cQW5vdGFjb2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Anotacao/DetalheAnotacao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQW5vdGFjYW9cRGV0YWxoZUFub3RhY2FvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Caixinha/Caixinha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FpeGluaGFcQ2FpeGluaGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Caixinha/CriarCaixinha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FpeGluaGFcQ3JpYXJDYWl4aW5oYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Caixinha/DetalheCaixinha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FpeGluaGFcRGV0YWxoZUNhaXhpbmhhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Caixinha/EditarCaixinha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FpeGluaGFcRWRpdGFyQ2FpeGluaGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Caixinha/GuardarCaixinha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FpeGluaGFcR3VhcmRhckNhaXhpbmhhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Caixinha/ResgatarCaixinha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FpeGluaGFcUmVzZ2F0YXJDYWl4aW5oYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Calendario/Calendario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsZW5kYXJpb1xDYWxlbmRhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -90,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/PagesPosCarregamento/CaixinhaSucesso.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNQb3NDYXJyZWdhbWVudG9cQ2FpeGluaGFTdWNlc3NvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/otavio_ti/Documents/Codigos/BankSim_Web/Pages/PagesPosCarregamento/DepositoSucesso.cshtml]

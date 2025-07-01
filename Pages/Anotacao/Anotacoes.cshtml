@@ -1,0 +1,183 @@
+﻿@page
+@model AnotacoesModel
+@{
+    ViewData["Title"] = "Minhas Anotações";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Minhas Anotações - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nota-card, .nota-criar {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            word-break: break-word;
+        }
+
+            .nota-card:hover, .nota-criar:hover {
+                transform: scale(1.03);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            }
+
+        .nota-titulo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .nota-texto {
+            font-size: 0.95rem;
+            color: #666;
+            overflow: hidden;
+        }
+
+        .nota-criar {
+            background-color: #f3f5ff;
+            border: 2px dashed #1065ee;
+            align-items: center;
+            justify-content: center;
+            color: #1065ee;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .invisivel {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .form-inline {
+            margin: 0;
+        }
+
+        .invisivel {
+            all: unset;
+            cursor: pointer;
+        }
+
+        .nota-criar-link {
+            text-decoration: none;
+        }
+
+        .nota-criar {
+            width: 180px;
+            height: 180px;
+            border-radius: 12px;
+            background-color: #f3f5ff;
+            border: 2px dashed #1065ee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #1065ee;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            .nota-criar:hover {
+                transform: scale(1.03);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            }
+
+        .nota-icone {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+
+        .nota-legenda {
+            margin-top: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Botão de criar nova anotação -->
+        <form method="post" class="nota-criar-link">
+            <button type="submit" class="nota-criar">
+                <div class="nota-icone">+</div>
+                <div class="nota-legenda">Criar nova</div>
+            </button>
+        </form>
+
+        <!-- Lista de anotações -->
+        @foreach (var nota in Model.ListaAnotacoes)
+        {
+            <div class="nota-card"
+                 onclick="window.location.href='DetalheAnotacao/@nota.ID'"
+                 style="background-color: @nota.CorNota">
+                <div class="nota-titulo">@nota.Titulo</div>
+                <div class="nota-texto">@nota.TextoAnotacao</div>
+            </div>
+        }
+    </div>
+</body>
+</html>

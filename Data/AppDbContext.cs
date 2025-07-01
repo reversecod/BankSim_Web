@@ -15,6 +15,8 @@ public class AppDbContext : DbContext
     public DbSet<Emprestimo> Emprestimos { get; set; }
     public DbSet<Fatura> Faturas { get; set; }
     public DbSet<Extrato> Extratos { get; set; }
+    public DbSet<Calendario> Calendario { get; set; }
+
     public DbSet<ExtratoFaturas> ExtratoFaturas { get; set; }
 
 
@@ -31,8 +33,14 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Emprestimo>().ToTable("Emprestimos");
         modelBuilder.Entity<Fatura>().ToTable("Fatura"); // singular conforme o banco
         modelBuilder.Entity<Extrato>().ToTable("Extrato");
+        modelBuilder.Entity<Calendario>().ToTable("Calendario");
         modelBuilder.Entity<ExtratoFaturas>().ToTable("ExtratoFaturas");
 
+        modelBuilder.Entity<ContaBancaria>()
+        .HasOne(c => c.dataSimulada)
+        .WithOne()
+        .HasForeignKey<DataSimulada>(d => d.ContaBancariaID)
+        .OnDelete(DeleteBehavior.Cascade);
         // Relacionamento 1:1 entre ContaBancaria e DataSimulada
         modelBuilder.Entity<DataSimulada>()
             .HasOne(c => c.ContaBancaria)
@@ -43,5 +51,44 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Fatura>()
        .HasIndex(f => new { f.ContaBancariaID, f.MesPagamento, f.AnoPagamento })
        .IsUnique();
+
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<ContaBancaria>()
+            .Property(c => c.LimiteCreditoDisponivel)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Deposito>()
+            .Property(d => d.Valor)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Emprestimo>()
+            .Property(e => e.ValorEmprestimo)
+            .HasPrecision(18, 2);
+        modelBuilder.Entity<Emprestimo>()
+            .Property(e => e.ValorPago)
+            .HasPrecision(18, 2);
+        modelBuilder.Entity<Emprestimo>()
+            .Property(e => e.ValorParcela)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Extrato>()
+            .Property(e => e.Valor)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<ExtratoFaturas>()
+            .Property(e => e.ValorTransferencia)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Fatura>()
+            .Property(f => f.ValorFaturaAtual)
+            .HasPrecision(18, 2);
+        modelBuilder.Entity<Fatura>()
+            .Property(f => f.ValorFaturaPago)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Transferencia>()
+            .Property(t => t.Valor)
+            .HasPrecision(18, 2);
     }
 }

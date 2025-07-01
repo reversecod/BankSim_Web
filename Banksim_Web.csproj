@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Caixinha\" />
+    <Folder Include="wwwroot\img\caixinhas\" />
   </ItemGroup>
 
 </Project>

@@ -6,10 +6,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.3.1/decimal.min.js"></script>
     <meta charset="utf-8" />
     <title>Empréstimo - BankSim</title>
     <style>
-        /* Mesmo estilo da página de transferência */
         body {
             margin: 0;
             padding-top: 60px;
@@ -98,7 +98,6 @@
             font-size: 0.9rem;
             margin-top: 10px;
         }
-
     </style>
 </head>
 <body>
@@ -119,10 +118,10 @@
             <input asp-for="NomeEmprestimo" />
 
             <label asp-for="ValorEmprestimo">Valor do Empréstimo (R$):</label>
-            <input asp-for="ValorEmprestimo" type="number" step="0.01" onchange="calcularParcelas()" />
+            <input asp-for="ValorEmprestimo" id="valorEmprestimo" type="number" step="0.01" />
 
             <label asp-for="QntdParcela">Quantidade de Parcelas:</label>
-            <select asp-for="QntdParcela" onchange="calcularParcelas()">
+            <select asp-for="QntdParcela" id="qtdParcela">
                 @for (int i = 1; i <= 12; i++)
                 {
                     <option value="@i">@i</option>
@@ -148,25 +147,34 @@
 
     <script>
         function calcularParcelas() {
-            const valor = parseFloat(document.querySelector('[name="ValorEmprestimo"]').value || '0');
-            const parcelas = parseInt(document.querySelector('[name="QntdParcela"]').value || '1');
-            const juros = parseFloat('@Model.PorcentagemJuros') / 100;
+            const valorInput = document.getElementById("valorEmprestimo");
+            const parcelasInput = document.getElementById("qtdParcela");
 
-            if (valor > 0 && parcelas > 0 && juros > 0) {
-                // Fórmula da Tabela Price
-                const fator = Math.pow(1 + juros, parcelas);
-                const valorParcela = valor * (juros * fator) / (fator - 1);
-                const totalComJuros = valorParcela * parcelas;
+            if (!valorInput || !parcelasInput) return;
 
-                document.getElementById("valorParcela").innerText = `R$ ${valorParcela.toFixed(2)}`;
-                document.getElementById("totalComJuros").innerText = `R$ ${totalComJuros.toFixed(2)}`;
+            const valor = new Decimal(valorInput.value || '0');
+            const parcelas = parseInt(parcelasInput.value || '1');
+            const juros = new Decimal(@Model.PorcentagemJuros.ToString(System.Globalization.CultureInfo.InvariantCulture)).div(100);
+
+            if (valor.gt(0) && parcelas > 0 && juros.gt(0)) {
+                const fator = Decimal.pow(Decimal.add(1, juros), parcelas);
+                const valorParcela = valor.mul(juros.mul(fator)).div(fator.sub(1));
+                const totalComJuros = valorParcela.mul(parcelas);
+
+                document.getElementById("valorParcela").innerText = `R$ ${valorParcela.toFixed(2).replace('.', ',')}`;
+                document.getElementById("totalComJuros").innerText = `R$ ${totalComJuros.toFixed(2).replace('.', ',')}`;
             } else {
                 document.getElementById("valorParcela").innerText = `R$ 0,00`;
                 document.getElementById("totalComJuros").innerText = `R$ 0,00`;
             }
         }
 
-        document.addEventListener("DOMContentLoaded", calcularParcelas);
+        document.addEventListener("DOMContentLoaded", () => {
+            calcularParcelas();
+
+            document.getElementById("valorEmprestimo").addEventListener("input", calcularParcelas);
+            document.getElementById("qtdParcela").addEventListener("input", calcularParcelas);
+        });
     </script>
 </body>
 </html>

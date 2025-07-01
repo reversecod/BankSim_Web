@@ -26,7 +26,12 @@ namespace Banksim_Web.Models
         public decimal ValorPago { get; set; } = 0;
 
         [Required]
+        public int TotalParcelas { get; set; }
+
+        [Required]
         public int QntdParcela { get; set; } = 1;
+
+        public decimal ValorParcela { get; set; }
 
         [Required]
         public int diaPagamento { get; set; } = 28;

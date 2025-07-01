@@ -1,6 +1,281 @@
-﻿namespace Banksim_Web.Pages
-{
-    public class Calendario
-    {
-    }
+﻿@page
+@model CalendarioModel
+@{
+    ViewData["Title"] = "Calendário";
 }
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Calendário - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .calendar-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px 30px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .calendar-header {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .day-cell {
+            aspect-ratio: 1 / 1;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 5px;
+        }
+
+            .day-cell[data-event="true"] {
+                background-color: #1065ee11;
+                border-color: #1065ee;
+                color: #1065ee;
+            }
+
+        .empty {
+            border: none;
+            background: none;
+        }
+
+        
+        @@media (max-width: 768px) {
+            .calendar-container
+
+        {
+            width: 95%;
+            padding: 15px;
+        }
+
+        .calendar-header {
+            font-size: 1.2rem;
+        }
+
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4); /* fundo escurecido */
+            align-items: center;
+            justify-content: center;
+        }
+
+            .modal.show {
+                display: flex;
+            }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+
+        @@keyframes slideDown {
+            from
+
+        {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .modal-content input[type="checkbox"] {
+            margin-left: 5px;
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #1065ee;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+            .modal-content button:hover {
+                background-color: #0d4fbd;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a asp-page="/Home">
+                <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+            </a>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            @Model.DataSimulada.ToString("MMMM yyyy").ToUpper()
+        </div>
+
+        <div class="calendar-grid">
+            @{
+                int diasNoMes = DateTime.DaysInMonth(Model.DataSimulada.Year, Model.DataSimulada.Month);
+                DateTime primeiroDia = new DateTime(Model.DataSimulada.Year, Model.DataSimulada.Month, 1);
+                int diaSemanaInicio = ((int)primeiroDia.DayOfWeek + 6) % 7; // começa segunda (0)
+
+                // Dias em branco antes do início
+                for (int i = 0; i < diaSemanaInicio; i++)
+                {
+                    <div class="day-cell empty"></div>
+                }
+
+                for (int dia = 1; dia <= diasNoMes; dia++)
+                {
+                    bool temEvento = Model.Eventos.Any(e =>
+                    e.Dia == dia &&
+                    (e.Recorrente || e.Ano == Model.DataSimulada.Year));
+
+                    <div class="day-cell" data-event="@temEvento" onclick="abrirModal(@dia)">
+                        @dia
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="eventoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>Adicionar Evento no Dia <span id="diaSelecionado"></span></h2>
+            <form method="post" asp-page-handler="SalvarEvento">
+                <input type="hidden" id="Dia" name="Dia" />
+                <input type="hidden" id="Mes" name="Mes" />
+                <input type="hidden" id="Ano" name="Ano" />
+
+                <label>Tipo de Evento:</label>
+                <select name="TipoEvento">
+                    <option value="Transferencia">Transferência</option>
+                    <option value="Deposito">Depósito</option>
+                </select>
+
+                <label>Descrição:</label>
+                <input type="text" name="Descricao" />
+
+                <label>
+                    Recorrente?
+                    <input type="checkbox" name="Recorrente" />
+                </label>
+
+                <button type="submit">Salvar Evento</button>
+            </form>
+        </div>
+    </div>
+    <script>
+    function abrirModal(dia) {
+        document.getElementById("Dia").value = dia;
+        document.getElementById("Mes").value = @Model.DataSimulada.Month;
+        document.getElementById("Ano").value = @Model.DataSimulada.Year;
+        document.getElementById("diaSelecionado").innerText = dia;
+        document.getElementById("eventoModal").classList.add("show");
+    }
+
+    function fecharModal() {
+        document.getElementById("eventoModal").classList.remove("show");
+    }
+</script>
+</body>
+</html>

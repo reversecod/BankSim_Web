@@ -66,11 +66,17 @@ public class EmprestimoModel : PageModel
             return RedirectToPage("/Emprestimo/StatusEmprestimo");
         }
 
+        var dataAtual = new DateTime(dataSimulada.AnoAtual, dataSimulada.MesAtual, dataSimulada.DiaAtual);
+
+        // Define o dia do vencimento (o DiaPagamento vindo do usuário)
         int mesBase = dataSimulada.MesAtual;
         int anoBase = dataSimulada.AnoAtual;
+        int diaVencimento = DiaPagamento;
 
-        int diasFaltando = DiaPagamento - dataSimulada.DiaAtual;
-        if (diasFaltando <= 7 && diasFaltando >= 0)
+        DateTime vencimentoProposto = new DateTime(anoBase, mesBase, diaVencimento);
+
+        // Incrementa mês até encontrar uma data de vencimento futura com pelo menos 7 dias de distância
+        while ((vencimentoProposto - dataAtual).TotalDays < 7)
         {
             mesBase++;
             if (mesBase > 12)
@@ -78,23 +84,35 @@ public class EmprestimoModel : PageModel
                 mesBase = 1;
                 anoBase++;
             }
+
+            // Atualiza a nova data de vencimento proposta
+            vencimentoProposto = new DateTime(anoBase, mesBase, diaVencimento);
         }
+
+        // Cálculo da Tabela Price (fixando o valor da parcela)
+        var juros = (decimal)(conta.PorcentagemEmprestimo / 100);
+        var fator = (decimal)Math.Pow(1 + (double)juros, QntdParcela);
+        var valorParcela = ValorEmprestimo * (juros * fator) / (fator - 1);
+        var valorTotalComJuros = valorParcela * QntdParcela;
 
         var novoEmprestimo = new Emprestimo
         {
             ContaBancariaID = conta.ID,
             NomeEmprestimo = $"{NomeEmprestimo} • {QntdParcela} parcela(s)",
-            ValorEmprestimo = ValorEmprestimo,
+            ValorEmprestimo = valorTotalComJuros, // valor total com juros
+            ValorParcela = valorParcela,          // valor fixo da parcela
             QntdParcela = QntdParcela,
+            TotalParcelas = QntdParcela,
             diaPagamento = DiaPagamento,
             MesInicioPagamento = mesBase,
             MesProxPagamento = mesBase,
-            ValorPago = 0, // começa em zero
+            ValorPago = 0,
             Pago = false
         };
 
         _db.Emprestimos.Add(novoEmprestimo);
 
+        // Lança o valor do crédito no extrato com o valor BRUTO (sem juros)
         _db.Extratos.Add(new Extrato
         {
             ContaBancariaID = conta.ID,

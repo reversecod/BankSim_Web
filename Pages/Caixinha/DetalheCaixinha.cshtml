@@ -1,0 +1,142 @@
+﻿@page "{id:int}"
+@model DetalheCaixinhaModel
+@{
+    ViewData["Title"] = "Detalhes da Caixinha";
+    var diasAplicados = Model.DiaAtual - Model.Caixinha.DiaCriacao;
+    var rendimentoTotal = Model.Caixinha.ValorCaixinhaAtual * (decimal)Math.Pow(1 + (double)(Model.Caixinha.PorcentagemRendimento / 100), diasAplicados / 30.0);
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - BankSim</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .top-bar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 2rem;
+        }
+
+        .content {
+            margin: 100px 60px 40px 60px;
+        }
+
+        .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .title-bar h2 {
+                font-size: 1.8rem;
+                color: #1065ee;
+                margin: 0;
+            }
+
+        .btn-editar {
+            background-color: #1065ee;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .info {
+            margin-top: 30px;
+        }
+
+            .info p {
+                font-size: 1.1rem;
+                margin: 6px 0;
+            }
+
+            .info strong {
+                font-weight: 600;
+            }
+
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-action {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .btn-guardar {
+            background-color: #00b894;
+            color: white;
+        }
+
+            .btn-guardar:hover {
+                background-color: #009f7a;
+            }
+
+        .btn-resgatar {
+            background-color: #d63031;
+            color: white;
+        }
+
+            .btn-resgatar:hover {
+                background-color: #c0392b;
+            }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a asp-page="/Home">
+            <img src="~/img/logoBKS.png" alt="BankSim Logo" class="logo-img" />
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="title-bar">
+            <h2>@Model.Caixinha.NomeCaixinha</h2>
+            <a asp-page="/Caixinha/EditarCaixinha" asp-route-id="@Model.Caixinha.ID" class="btn-editar">Editar</a>
+        </div>
+
+        <div class="info">
+            <p><strong>Valor Inicial:</strong> R$ @Model.Caixinha.ValorCaixinhaAtual.ToString("N2")</p>
+            <p><strong>Rendimento Total:</strong> R$ @((rendimentoTotal - Model.Caixinha.ValorCaixinhaAtual).ToString("N2"))</p>
+            <p><strong>Total Bruto:</strong> R$ @rendimentoTotal.ToString("N2")</p>
+            <p><strong>Dias Aplicados:</strong> @diasAplicados dias</p>
+        </div>
+
+        <div class="btn-group">
+            <a asp-page="/Caixinha/GuardarCaixinha" asp-route-id="@Model.Caixinha.ID" class="btn-action btn-guardar">Guardar</a>
+            <a asp-page="/Caixinha/ResgatarCaixinha" asp-route-id="@Model.Caixinha.ID" class="btn-action btn-resgatar">Resgatar</a>
+        </div>
+    </div>
+</body>
+</html>

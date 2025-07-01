@@ -17,7 +17,15 @@ namespace Banksim_Web.Models
         public ContaBancaria ContaBancaria { get; set; }
         public string NomeCaixinha { get; set; } = string.Empty;
         public string? FotoCaixinha { get; set; }
-        public decimal ValorCaixinha { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ValorCaixinhaAtual { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ValorCaixinhaInicial { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ValorRendido { get; set; }
         public double PorcentagemRendimento { get; set; }
         public int DiaCriacao { get; set; }
         public int MesCriacao { get; set; }

@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -129,10 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\pages\\caixinha\\resgatarcaixinha.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:pages\\caixinha\\resgatarcaixinha.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE9C51FA-1869-4021-84E3-1EDAA7697A2C}|Banksim_Web.csproj|c:\\users\\otavio_ti\\documents\\codigos\\banksim_web\\models\\contabancaria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -338,7 +338,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -358,20 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-08T19:49:16.918Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -379,8 +366,7 @@
               "RelativeToolTip": ".gitignore",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-07-08T19:48:52.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T19:48:52.616Z"
             },
             {
               "$type": "Document",
@@ -397,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Home.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml",
               "RelativeDocumentMoniker": "Pages\\Home.cshtml",
@@ -405,12 +391,11 @@
               "RelativeToolTip": "Pages\\Home.cshtml",
               "ViewState": "AgIAAIUAAAAAAAAAAAD4v5kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T16:44:50.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T16:44:50.192Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
@@ -418,12 +403,11 @@
               "RelativeToolTip": "Pages\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T19:38:18.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:38:18.22Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Anotacoes.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Anotacao\\Anotacoes.cshtml",
               "RelativeDocumentMoniker": "Pages\\Anotacao\\Anotacoes.cshtml",
@@ -431,12 +415,11 @@
               "RelativeToolTip": "Pages\\Anotacao\\Anotacoes.cshtml",
               "ViewState": "AgIAAJwAAAAAAAAAAAAIwK8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-01T17:09:34.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-01T17:09:34.292Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Anotacoes.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Anotacao\\Anotacoes.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Anotacao\\Anotacoes.cshtml.cs",
@@ -444,12 +427,11 @@
               "RelativeToolTip": "Pages\\Anotacao\\Anotacoes.cshtml.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAADsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T17:09:44.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-01T17:09:44.268Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "DetalheAnotacao.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Anotacao\\DetalheAnotacao.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Anotacao\\DetalheAnotacao.cshtml.cs",
@@ -457,12 +439,11 @@
               "RelativeToolTip": "Pages\\Anotacao\\DetalheAnotacao.cshtml.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAQwHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T17:16:27.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-01T17:16:27.312Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "DetalheAnotacao.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Anotacao\\DetalheAnotacao.cshtml",
               "RelativeDocumentMoniker": "Pages\\Anotacao\\DetalheAnotacao.cshtml",
@@ -470,12 +451,36 @@
               "RelativeToolTip": "Pages\\Anotacao\\DetalheAnotacao.cshtml",
               "ViewState": "AgIAAGwAAAAAAAAAAAAIwIIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-01T17:15:35.347Z",
+              "WhenOpened": "2025-07-01T17:15:35.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T19:34:36.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-08T19:49:16.918Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Calendario.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Calendario\\Calendario.cshtml",
               "RelativeDocumentMoniker": "Pages\\Calendario\\Calendario.cshtml",
@@ -483,12 +488,11 @@
               "RelativeToolTip": "Pages\\Calendario\\Calendario.cshtml",
               "ViewState": "AgIAAAECAAAAAAAAAAAQwB8CAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-01T20:29:38.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-01T20:29:38.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Calendario.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Calendario\\Calendario.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Calendario\\Calendario.cshtml.cs",
@@ -496,12 +500,11 @@
               "RelativeToolTip": "Pages\\Calendario\\Calendario.cshtml.cs",
               "ViewState": "AgIAAKcAAAAAAAAAAAAAAL4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:42:44.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:42:44.549Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Home.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Home.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Home.cshtml.cs",
@@ -509,12 +512,11 @@
               "RelativeToolTip": "Pages\\Home.cshtml.cs",
               "ViewState": "AgIAAH4AAAAAAAAAAAAQwI0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:33:52.623Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:33:52.623Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -522,12 +524,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-01T17:07:10.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-01T17:07:10.309Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Registro.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\Registro.cshtml",
               "RelativeDocumentMoniker": "Pages\\Acessos\\Registro.cshtml",
@@ -535,12 +536,11 @@
               "RelativeToolTip": "Pages\\Acessos\\Registro.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T19:40:00.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:40:00.233Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "calendario.css",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\wwwroot\\css\\calendario.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\calendario.css",
@@ -548,12 +548,11 @@
               "RelativeToolTip": "wwwroot\\css\\calendario.css",
               "ViewState": "AgIAAHYBAAAAAAAAAADwv4EBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-08T19:07:20.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T19:07:20.771Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DataSimulada.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Models\\DataSimulada.cs",
               "RelativeDocumentMoniker": "Models\\DataSimulada.cs",
@@ -561,12 +560,11 @@
               "RelativeToolTip": "Models\\DataSimulada.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAiwD4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:10:34.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:10:34.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\Login.cshtml",
               "RelativeDocumentMoniker": "Pages\\Acessos\\Login.cshtml",
@@ -574,12 +572,11 @@
               "RelativeToolTip": "Pages\\Acessos\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T19:39:56.249Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:39:56.249Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Logout.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Logout.cshtml",
               "RelativeDocumentMoniker": "Pages\\Logout.cshtml",
@@ -587,12 +584,11 @@
               "RelativeToolTip": "Pages\\Logout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T20:18:01.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T20:18:01.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "CriarConta.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml",
               "RelativeDocumentMoniker": "Pages\\Acessos\\CriarConta.cshtml",
@@ -600,12 +596,11 @@
               "RelativeToolTip": "Pages\\Acessos\\CriarConta.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T17:27:38.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:27:38.468Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
@@ -613,12 +608,11 @@
               "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAIwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T18:33:53.038Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T18:33:53.038Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "ResgatarCaixinha.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Caixinha\\ResgatarCaixinha.cshtml",
               "RelativeDocumentMoniker": "Pages\\Caixinha\\ResgatarCaixinha.cshtml",
@@ -626,12 +620,11 @@
               "RelativeToolTip": "Pages\\Caixinha\\ResgatarCaixinha.cshtml",
               "ViewState": "AgIAAFUAAAAAAAAAAAAIwHoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T20:04:10.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T20:04:10.78Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Privacy.cshtml",
               "RelativeDocumentMoniker": "Pages\\Privacy.cshtml",
@@ -639,12 +632,11 @@
               "RelativeToolTip": "Pages\\Privacy.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T18:42:36.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T18:42:36.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Pages\\_ViewImports.cshtml",
@@ -652,12 +644,11 @@
               "RelativeToolTip": "Pages\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T18:42:46.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T18:42:46.297Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "CriarConta.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Acessos\\CriarConta.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Acessos\\CriarConta.cshtml.cs",
@@ -665,12 +656,11 @@
               "RelativeToolTip": "Pages\\Acessos\\CriarConta.cshtml.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAQwEQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:27:47.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:27:47.842Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Error.cshtml",
               "RelativeDocumentMoniker": "Pages\\Error.cshtml",
@@ -678,12 +668,11 @@
               "RelativeToolTip": "Pages\\Error.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T20:12:22.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T20:12:22.192Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Extrato.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Extrato\\Extrato.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Extrato\\Extrato.cshtml.cs",
@@ -691,12 +680,11 @@
               "RelativeToolTip": "Pages\\Extrato\\Extrato.cshtml.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAUwB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T12:51:36.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T12:51:36.64Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Extrato.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Extrato\\Extrato.cshtml",
               "RelativeDocumentMoniker": "Pages\\Extrato\\Extrato.cshtml",
@@ -704,12 +692,11 @@
               "RelativeToolTip": "Pages\\Extrato\\Extrato.cshtml",
               "ViewState": "AgIAAGIAAAAAAAAAAAAIwHAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-24T12:51:19.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T12:51:19.86Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Deposito.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Deposito\\Deposito.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Deposito\\Deposito.cshtml.cs",
@@ -717,12 +704,11 @@
               "RelativeToolTip": "Pages\\Deposito\\Deposito.cshtml.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAIwFMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:52:34.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:52:34.822Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Deposito.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Deposito\\Deposito.cshtml",
               "RelativeDocumentMoniker": "Pages\\Deposito\\Deposito.cshtml",
@@ -730,12 +716,11 @@
               "RelativeToolTip": "Pages\\Deposito\\Deposito.cshtml",
               "ViewState": "AgIAAHAAAAAAAAAAAAAIwIkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T18:10:48.262Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T18:10:48.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "EditarCaixinha.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Caixinha\\EditarCaixinha.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Caixinha\\EditarCaixinha.cshtml.cs",
@@ -743,12 +728,11 @@
               "RelativeToolTip": "Pages\\Caixinha\\EditarCaixinha.cshtml.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAmwAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T19:52:08.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T19:52:08.758Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "GuardarCaixinha.cshtml",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Caixinha\\GuardarCaixinha.cshtml",
               "RelativeDocumentMoniker": "Pages\\Caixinha\\GuardarCaixinha.cshtml",
@@ -756,8 +740,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\GuardarCaixinha.cshtml",
               "ViewState": "AgIAAEwAAAAAAAAAAAAIwHAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T20:01:04.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T20:01:04.67Z"
             },
             {
               "$type": "Document",
@@ -769,12 +752,11 @@
               "RelativeToolTip": "Pages\\Caixinha\\Caixinha.cshtml.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAIwEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T17:53:55.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T17:53:55.743Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ResgatarCaixinha.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Pages\\Caixinha\\ResgatarCaixinha.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Caixinha\\ResgatarCaixinha.cshtml.cs",
@@ -782,8 +764,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\ResgatarCaixinha.cshtml.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAQwFoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T20:07:22.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T20:07:22.446Z"
             },
             {
               "$type": "Document",
@@ -795,8 +776,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\GuardarCaixinha.cshtml.cs",
               "ViewState": "AgIAAHQAAAAAAAAAAAAQwJIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T20:07:12.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T20:07:12.49Z"
             },
             {
               "$type": "Document",
@@ -808,8 +788,7 @@
               "RelativeToolTip": "Pages\\Acessos\\Registro.cshtml.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:41:46.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:41:46.002Z"
             },
             {
               "$type": "Document",
@@ -821,21 +800,7 @@
               "RelativeToolTip": "Pages\\Acessos\\Login.cshtml.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAQwFwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:47:03.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\otavio_ti\\Documents\\Codigos\\BankSim_Web\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T19:34:36.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:47:03.372Z"
             },
             {
               "$type": "Document",
@@ -847,8 +812,7 @@
               "RelativeToolTip": "Models\\ContaBancaria.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAA5wCgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T16:53:36.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T16:53:36.655Z"
             },
             {
               "$type": "Document",
@@ -860,8 +824,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\DetalheCaixinha.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T19:21:06.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T19:21:06.255Z"
             },
             {
               "$type": "Document",
@@ -873,8 +836,7 @@
               "RelativeToolTip": "Data\\AppDbContext.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAswEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T12:14:49.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T12:14:49.928Z"
             },
             {
               "$type": "Document",
@@ -886,8 +848,7 @@
               "RelativeToolTip": "Pages\\Emprestimo\\Emprestimo.cshtml.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAwwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T16:47:54.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T16:47:54.83Z"
             },
             {
               "$type": "Document",
@@ -899,8 +860,7 @@
               "RelativeToolTip": "Models\\Transferencia.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:12:44.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:12:44.686Z"
             },
             {
               "$type": "Document",
@@ -912,8 +872,7 @@
               "RelativeToolTip": "Models\\Fatura.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:13:36.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:13:36.647Z"
             },
             {
               "$type": "Document",
@@ -925,8 +884,7 @@
               "RelativeToolTip": "Models\\ExtratoFaturas.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T12:44:54.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T12:44:54.278Z"
             },
             {
               "$type": "Document",
@@ -938,8 +896,7 @@
               "RelativeToolTip": "Models\\Extrato.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:10:48.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:10:48.054Z"
             },
             {
               "$type": "Document",
@@ -951,8 +908,7 @@
               "RelativeToolTip": "Models\\Emprestimo.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwCMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T11:40:01.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T11:40:01.924Z"
             },
             {
               "$type": "Document",
@@ -964,8 +920,7 @@
               "RelativeToolTip": "Models\\Deposito.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:09:52.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:09:52.07Z"
             },
             {
               "$type": "Document",
@@ -977,8 +932,7 @@
               "RelativeToolTip": "Models\\Calendario.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T19:46:19.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-01T19:46:19.406Z"
             },
             {
               "$type": "Document",
@@ -990,8 +944,7 @@
               "RelativeToolTip": "Models\\Caixinha.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAA5wBwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T17:14:03.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T17:14:03.571Z"
             },
             {
               "$type": "Document",
@@ -1003,8 +956,7 @@
               "RelativeToolTip": "Models\\AporteCaixinha.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T18:35:24.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T18:35:24.589Z"
             },
             {
               "$type": "Document",
@@ -1016,8 +968,7 @@
               "RelativeToolTip": "Models\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T11:36:51.836Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T11:36:51.836Z"
             },
             {
               "$type": "Document",
@@ -1029,8 +980,7 @@
               "RelativeToolTip": "Models\\Anotacao.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T11:37:54.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T11:37:54.944Z"
             },
             {
               "$type": "Document",
@@ -1042,8 +992,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\DetalheCaixinha.cshtml",
               "ViewState": "AgIAAGoAAAAAAAAAAAAIwH8AAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T19:18:38.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T19:18:38.334Z"
             },
             {
               "$type": "Document",
@@ -1055,8 +1004,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\Caixinha.cshtml",
               "ViewState": "AgIAAIoAAAAAAAAAAAAIwI4AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T17:53:30.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T17:53:30.726Z"
             },
             {
               "$type": "Document",
@@ -1068,8 +1016,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\CriarCaixinha.cshtml.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAQwJcAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T18:00:11.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T18:00:11.245Z"
             },
             {
               "$type": "Document",
@@ -1081,8 +1028,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\CriarCaixinha.cshtml",
               "ViewState": "AgIAAGcAAAAAAAAAAAAIwHgAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T17:59:19.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T17:59:19.927Z"
             },
             {
               "$type": "Document",
@@ -1094,8 +1040,7 @@
               "RelativeToolTip": "Pages\\Transferencia\\Transferencia.cshtml.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAOYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T16:46:53.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T16:46:53.567Z"
             },
             {
               "$type": "Document",
@@ -1107,8 +1052,7 @@
               "RelativeToolTip": "Pages\\Transferencia\\Transferencia.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T16:45:53.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T16:45:53.131Z"
             },
             {
               "$type": "Document",
@@ -1120,8 +1064,7 @@
               "RelativeToolTip": "Pages\\Faturas\\Faturas.cshtml.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAgwHcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T19:27:55.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:27:55.676Z"
             },
             {
               "$type": "Document",
@@ -1133,8 +1076,7 @@
               "RelativeToolTip": "Pages\\Faturas\\Faturas.cshtml",
               "ViewState": "AgIAAH0AAAAAAAAAAAAuwIgAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T19:22:48.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-06T19:22:48.504Z"
             },
             {
               "$type": "Document",
@@ -1146,8 +1088,7 @@
               "RelativeToolTip": "Pages\\Caixinha\\EditarCaixinha.cshtml",
               "ViewState": "AgIAAGoAAAAAAAAAAAAAAH4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T19:52:04.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-30T19:52:04.273Z"
             },
             {
               "$type": "Document",
@@ -1159,8 +1100,7 @@
               "RelativeToolTip": "Dtos\\CalendarioDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T12:28:34.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T12:28:34.48Z"
             },
             {
               "$type": "Document",
@@ -1172,8 +1112,7 @@
               "RelativeToolTip": "Enums\\Meses.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T20:32:07.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T20:32:07.663Z"
             },
             {
               "$type": "Document",

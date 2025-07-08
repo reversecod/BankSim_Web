@@ -5,9 +5,139 @@
     <title>@ViewData["Title"] - BankSim</title>
     <link rel="icon" type="image/png" href="~/img/BankSimIcon.png" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        #calculadora-bolha {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #2198F4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 2000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        #modal-calculadora {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 280px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            z-index: 3000;
+        }
+
+            #modal-calculadora input {
+                width: calc(100% - 4px); /* margem interna de segurança */
+                height: 36px;
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                text-align: right;
+                padding: 0 10px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                color: black;
+                box-sizing: border-box;
+                background-color: #f8f9fa;
+            }
+
+        .calc-btns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+            .calc-btns button {
+                padding: 12px;
+                font-size: 18px;
+                border: none;
+                background-color: #e0e0e0;
+                border-radius: 6px;
+                cursor: pointer;
+                color: black;
+            }
+
+                .calc-btns button:hover {
+                    background-color: #ccc;
+                }
+
+    </style>
 </head>
 <body>
+    @{
+        var exibirCalculadora = ViewData["ExibirCalculadora"] as bool? ?? true;
+    }
+
+    @if (exibirCalculadora)
+    {
+        <div id="calculadora-bolha" onclick="abrirCalculadora()">🧮</div>
+        <div id="modal-calculadora">
+            <input type="text" id="visor" disabled />
+            <div class="calc-btns">
+                <button onclick="digitar('7')">7</button>
+                <button onclick="digitar('8')">8</button>
+                <button onclick="digitar('9')">9</button>
+                <button onclick="digitar('/')">÷</button>
+
+                <button onclick="digitar('4')">4</button>
+                <button onclick="digitar('5')">5</button>
+                <button onclick="digitar('6')">6</button>
+                <button onclick="digitar('*')">×</button>
+
+                <button onclick="digitar('1')">1</button>
+                <button onclick="digitar('2')">2</button>
+                <button onclick="digitar('3')">3</button>
+                <button onclick="digitar('-')">−</button>
+
+                <button onclick="digitar('0')">0</button>
+                <button onclick="digitar('.')">.</button>
+                <button onclick="calcular()">=</button>
+                <button onclick="digitar('+')">+</button>
+
+                <button onclick="limpar()" style="grid-column: span 4; background-color: #2198F4; color: white;">Limpar</button>
+            </div>
+        </div>
+    }
     @RenderBody()
     @RenderSection("Scripts", required: false)
+    <script>
+        let visor = "";
+
+        function abrirCalculadora() {
+            const modal = document.getElementById("modal-calculadora");
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+
+        function digitar(valor) {
+            visor += valor;
+            document.getElementById("visor").value = visor;
+        }
+
+        function calcular() {
+            try {
+                visor = eval(visor).toString();
+                document.getElementById("visor").value = visor;
+            } catch {
+                document.getElementById("visor").value = "Erro";
+                visor = "";
+            }
+        }
+
+        function limpar() {
+            visor = "";
+            document.getElementById("visor").value = "";
+        }
+    </script>
 </body>
 </html>

@@ -7,9 +7,9 @@ namespace Banksim_Web.Models
 {
     public class Caixinha
     {
+        [Required]
         public int ID { get; set; }
 
-        [Required]
         public int ContaBancariaID { get; set; }
 
         [ForeignKey("ContaBancariaID")]
@@ -26,7 +26,8 @@ namespace Banksim_Web.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal ValorRendido { get; set; }
-        public double PorcentagemRendimento { get; set; }
+        public decimal PorcentagemRendimento { get; set; }
+        public int DiasCorridos { get; set; }
         public int DiaCriacao { get; set; }
         public int MesCriacao { get; set; }
         public int AnoCriacao { get; set; }

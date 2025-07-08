@@ -12,11 +12,11 @@ public class AppDbContext : DbContext
     public DbSet<Transferencia> Transferencias { get; set; }
     public DbSet<Anotacao> Anotacoes { get; set; }
     public DbSet<Caixinha> Caixinhas { get; set; }
+    public DbSet<AporteCaixinha> AportesCaixinha { get; set; }
     public DbSet<Emprestimo> Emprestimos { get; set; }
     public DbSet<Fatura> Faturas { get; set; }
     public DbSet<Extrato> Extratos { get; set; }
     public DbSet<Calendario> Calendario { get; set; }
-
     public DbSet<ExtratoFaturas> ExtratoFaturas { get; set; }
 
 
@@ -30,11 +30,13 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Transferencia>().ToTable("Transferencias");
         modelBuilder.Entity<Anotacao>().ToTable("Anotacoes");
         modelBuilder.Entity<Caixinha>().ToTable("Caixinhas");
+        modelBuilder.Entity<AporteCaixinha>().ToTable("AportesCaixinha");
         modelBuilder.Entity<Emprestimo>().ToTable("Emprestimos");
         modelBuilder.Entity<Fatura>().ToTable("Fatura"); // singular conforme o banco
         modelBuilder.Entity<Extrato>().ToTable("Extrato");
         modelBuilder.Entity<Calendario>().ToTable("Calendario");
         modelBuilder.Entity<ExtratoFaturas>().ToTable("ExtratoFaturas");
+
 
         modelBuilder.Entity<ContaBancaria>()
         .HasOne(c => c.dataSimulada)

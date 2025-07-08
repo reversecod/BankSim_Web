@@ -94,17 +94,38 @@ namespace Banksim_Web.Pages.Caixinha
                 return RedirectToPage("/Error");
 
             var caixinha = _db.Caixinhas.FirstOrDefault(c => c.ID == Caixinha.ID && c.ContaBancariaID == conta.ID);
-
             if (caixinha == null)
                 return RedirectToPage("/Error");
 
+            // Verifica valor total
             if (caixinha.ValorCaixinhaAtual > 0)
             {
                 ModelState.AddModelError("", "Para excluir esta caixinha, é necessário resgatar todo o valor guardado.");
-                Caixinha = caixinha; // Recarrega dados na tela em caso de erro
+                Caixinha = caixinha;
                 return Page();
             }
 
+            // Verifica se há algum aporte com valor > 0 (capital ou rendimento)
+            var aportesVivos = _db.AportesCaixinha.Any(a =>
+                a.CaixinhaID == caixinha.ID &&
+                a.ContaBancariaID == conta.ID &&
+                (a.ValorAporte > 0 || a.RendimentoAporte > 0));
+
+            if (aportesVivos)
+            {
+                ModelState.AddModelError("", "Não é possível excluir a caixinha pois ainda existem aportes ativos.");
+                Caixinha = caixinha;
+                return Page();
+            }
+
+            // Remove os aportes zerados (opcional)
+            var aportesZerados = _db.AportesCaixinha
+                .Where(a => a.CaixinhaID == caixinha.ID && a.ContaBancariaID == conta.ID)
+                .ToList();
+
+            _db.AportesCaixinha.RemoveRange(aportesZerados);
+
+            // Remove a caixinha
             _db.Caixinhas.Remove(caixinha);
             await _db.SaveChangesAsync();
 

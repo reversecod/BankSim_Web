@@ -30,7 +30,7 @@ namespace Banksim_Web.Models
         public int DiaPagamentoFatura { get; set; } = 1;
 
         [Required]
-        public double PorcentagemEmprestimo { get; set; } = 4.25;
+        public decimal PorcentagemEmprestimo { get; set; } = 4.25M;
 
         public DateTime DataCriacao { get; set; } = DateTime.Now;
 

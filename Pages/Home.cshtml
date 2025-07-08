@@ -12,10 +12,15 @@
     <title>Home - BankSim</title>
     <style>
         html, body {
+            overflow: auto;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             height: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
         }
 
         .top-bar {
@@ -145,10 +150,83 @@
             position: absolute;
             top: 70px;
             right: 30px;
+        }
+
+        .data-controls {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
+        .data-box {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            color: #000;
+            min-width: 190px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .btn-avancar {
+            font-size: 16px;
+            text-decoration: none;
+            padding: 8px 14px;
+            background-color: #2198F4;
+            color: white;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+            .btn-avancar:hover {
+                background-color: #1a7ed0;
+            }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            text-align: center;
+            color: #333;
+        }
+
+            .modal-content h2 {
+                margin-top: 0;
+                color: #2198F4;
+                font-size: 24px;
+            }
+
+            .modal-content button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #2198F4;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+                .modal-content button:hover {
+                    background-color: #1976c5;
+                }
     </style>
 </head>
 <body>
@@ -186,14 +264,117 @@
 
         <div class="content">
             <h1>BankSim</h1>
+            @if (TempData["LembreteMensagem"] != null)
+            {
+                <div id="modalLembrete" class="modal-overlay">
+                    <div class="modal-content">
+                        <h2>Lembrete</h2>
+                        <strong>@TempData["LembreteMensagem"]</strong>
+                        <p>@TempData["LembreteDescricao"]</p>
+                        <button onclick="fecharModalLembrete()">Fechar</button>
+                    </div>
+                </div>
+            }
+            @if (TempData["DepositoTitulo"] != null)
+            {
+                <div id="modalLembrete" class="modal-overlay">
+                    <div class="modal-content">
+                        <h2>Evento</h2>
+                        <strong>Depósito agendado realizado no valor de R$@TempData["DepositoValor"]</strong>
+                        <p>@TempData["DepositoDescricao"]</p>
+                        <button onclick="fecharModalLembrete()">Fechar</button>
+                    </div>
+                </div>
+            }
+            @if (TempData["TransferenciaTitulo"] != null)
+            {
+                var titulo = TempData["TransferenciaTitulo"]?.ToString();
+                var descricao = TempData["TransferenciaDescricao"]?.ToString();
+                var valor = TempData["TransferenciaValor"]?.ToString();
+
+                var isErro = titulo != null && titulo.Contains("bloqueada", StringComparison.OrdinalIgnoreCase);
+                var corHeader = isErro ? "red" : "#2198F4";
+                var tituloModal = isErro ? "Erro na Transferência" : "Transferência Efetuada";
+                var descricaoFormatada = isErro ? descricao : $"Transferência agendada realizada no valor de R$ {TempData["TransferenciaValor"]}";
+
+                <div id="modalLembrete" class="modal-overlay">
+                    <div class="modal-content">
+                        <h2 style="color: @corHeader;">@tituloModal</h2>
+                        <p>@descricaoFormatada</p>
+                        <button onclick="fecharModalLembrete()">Fechar</button>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div id="modalRedefinirLimite" class="modal-overlay">
+            <div class="modal-content">
+                <form method="post">
+                    <h2 style="color: #2198F4;">Redefinir Limite de Crédito</h2>
+                    <p>Limite atual: <strong>R$ @Model.LimiteCreditoDisponivel.ToString("F2")</strong></p>
+
+                    <div style="display: flex; align-items: center; gap: 5px; margin-top: 15px;">
+                        <span style="font-size: 16px;">R$</span>
+                        <input asp-for="NovoLimite" type="number" min="0"
+                               style="flex: 1; padding: 10px; font-size: 16px;" placeholder="Novo limite" />
+                    </div>
+
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <p style="color:red; margin-top:10px;">@error.ErrorMessage</p>
+                        }
+                    }
+
+                    <div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 20px;">
+                        <button type="submit" style="flex: 1; background-color: #2198F4; color: white; padding: 10px 0; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">
+                            Confirmar
+                        </button>
+                        <button type="button" onclick="fecharModalLimite()" style="flex: 1; background-color: #dc3545; color: white; padding: 10px 0; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
     <div class="data-wrapper">
         <div class="data-controls">
-            <a asp-page="/Home" asp-route-AcaoData="avancar">Avançar Dia</a>
-            <span>@Model.DataSimulada.ToString("dd/MM/yyyy")</span>
+            @{
+                var dataFormatada = Model.DataSimulada.ToString("dd/MM/yyyy");
+                var nomeDiaSemana = new DateTime(Model.DataSimulada.Year, Model.DataSimulada.Month, Model.DataSimulada.Day)
+                .ToString("dddd", new System.Globalization.CultureInfo("pt-BR"));
+                var nomeDiaSemanaCapitalizado = System.Globalization.CultureInfo
+                .GetCultureInfo("pt-BR")
+                .TextInfo
+                .ToTitleCase(nomeDiaSemana);
+            }
+
+            <div class="data-box">
+                @dataFormatada - <span style="font-weight:600;">@nomeDiaSemanaCapitalizado</span>
+            </div>
+            <a class="btn-avancar" asp-page="/Home" asp-route-AcaoData="avancar">Avançar Dia</a>
         </div>
     </div>
+    <script>
+        function fecharModalLembrete() {
+            document.getElementById("modalLembrete").style.display = "none";
+        }
+
+        // Abre o modal automaticamente ao carregar
+        window.onload = function () {
+            document.getElementById("modalLembrete").style.display = "flex";
+        };
+
+        function abrirModal() {
+            document.getElementById("modalRedefinirLimite").style.display = "flex";
+        }
+
+        function fecharModalLimite() {
+            document.getElementById("modalRedefinirLimite").style.display = "none";
+        }
+    </script>
 </body>
 </html>

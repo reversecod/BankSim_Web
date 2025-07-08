@@ -4,7 +4,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.CommandTimeout(120) // timeout de 120 segundos
+    ));
 
 builder.Services.AddAuthentication("cookieAuth")
     .AddCookie("cookieAuth", config =>
@@ -20,6 +23,12 @@ builder.Services.AddRazorPages();
 builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 10 * 1024 * 1024; // 10 MB
+});
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(5); // conexão viva
+    serverOptions.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(5); // espera por headers
 });
 
 var app = builder.Build();

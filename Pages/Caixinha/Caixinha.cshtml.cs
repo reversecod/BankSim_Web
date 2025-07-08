@@ -1,4 +1,3 @@
-using Banksim_Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -38,23 +37,52 @@ namespace Banksim_Web.Pages.Caixinha
 
             TotalRendido = 0;
 
-            foreach (var c in ListaCaixinha)
+            foreach (var caixinha in ListaCaixinha)
             {
-                var dataCriacao = new DateTime(c.AnoCriacao, c.MesCriacao, c.DiaCriacao);
-                var diasAplicados = (DateTime.Now - dataCriacao).Days;
+                var aportes = await _db.AportesCaixinha
+                    .Where(a => a.CaixinhaID == caixinha.ID && a.ValorAporte > 0)
+                    .ToListAsync();
 
-                if (diasAplicados < 0) diasAplicados = 0;
+                decimal rendimentoCaixinha = 0;
 
-                var rendimento = c.ValorCaixinhaInicial *
-                                (decimal)(c.PorcentagemRendimento / 100) *
-                                (decimal)(diasAplicados / 365.0);
+                foreach (var aporte in aportes)
+                {
+                    int dias = aporte.DiasAplicados;
+                    if (dias <= 0) continue;
 
-                c.ValorRendido = rendimento;
+                    // Calcular rendimento acumulado do aporte
+                    decimal taxaAnual = caixinha.PorcentagemRendimento / 100M;
+                    decimal taxaDiaria = Decimal.Divide(taxaAnual, 365M);
 
-                TotalRendido += rendimento;
+                    // Fórmula de juros compostos com decimal
+                    decimal rendimentoFinal = aporte.ValorAporte * (DecimalPow(1 + taxaDiaria, dias) - 1);
+
+                    // Atualiza apenas se houve mudança no rendimento
+                    if (aporte.RendimentoAporte != rendimentoFinal)
+                    {
+                        aporte.RendimentoAporte = rendimentoFinal;
+                    }
+
+                    rendimentoCaixinha += rendimentoFinal;
+                }
+
+                caixinha.ValorRendido = rendimentoCaixinha;
+                caixinha.ValorCaixinhaAtual = aportes.Sum(a => a.ValorAporte + a.RendimentoAporte);
+
+                TotalRendido += rendimentoCaixinha;
             }
 
+            await _db.SaveChangesAsync();
+
             return Page();
+        }
+
+        public static decimal DecimalPow(decimal baseValue, int exponent)
+        {
+            decimal result = 1;
+            for (int i = 0; i < exponent; i++)
+                result *= baseValue;
+            return result;
         }
     }
 }

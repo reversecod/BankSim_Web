@@ -1,4 +1,4 @@
-using Banksim_Web.Models;
+﻿using Banksim_Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -37,7 +37,7 @@ namespace Banksim_Web.Pages
 
             if (Id == 0)
             {
-                // Cria��o de nova anota��o ao acessar via "DetalheAnotacao"
+                // Criação de nova anotação ao acessar via "DetalheAnotacao"
                 var nova = new Models.Anotacao
                 {
                     ContaBancariaID = conta.ID,
@@ -79,13 +79,42 @@ namespace Banksim_Web.Pages
             if (anotacaoExistente == null)
                 return RedirectToPage("/Error");
 
-            // Atualiza os dados da anota��o
+            // 🚨 Validação de campos obrigatórios
+            if (string.IsNullOrWhiteSpace(Anotacao.TextoAnotacao))
+            {
+                ModelState.AddModelError("Anotacao.TextoAnotacao", "O texto da anotação não pode estar vazio.");
+                Anotacao = anotacaoExistente; // reatribui para exibir dados corretamente na view
+                return Page();
+            }
+
+            // Atualiza os dados da anotação
             anotacaoExistente.Titulo = Anotacao.Titulo;
             anotacaoExistente.TextoAnotacao = Anotacao.TextoAnotacao;
             anotacaoExistente.CorNota = Anotacao.CorNota;
 
             await _db.SaveChangesAsync();
 
+            return RedirectToPage("/Anotacao/Anotacoes");
+        }
+        public async Task<IActionResult> OnPostDeleteAsync()
+        {
+            var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdStr, out var userId))
+                return RedirectToPage("/Error");
+
+            var conta = await _db.ContasBancarias
+                .FirstOrDefaultAsync(c => c.UsuarioID == userId);
+
+            if (conta == null)
+                return RedirectToPage("/Error");
+
+            var anotacao = await _db.Anotacoes
+                .FirstOrDefaultAsync(a => a.ID == Anotacao.ID && a.ContaBancariaID == conta.ID);
+
+            if (anotacao == null)
+                return RedirectToPage("/Error");
+
+            _db.Anotacoes.Remove(anotacao);
             await _db.SaveChangesAsync();
 
             return RedirectToPage("/Anotacao/Anotacoes");

@@ -1,3 +1,4 @@
+using Banksim_Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
@@ -75,6 +76,9 @@ namespace Banksim_Web.Pages.Caixinha
                 Caixinha.DiaCriacao = dataSimulada.DiaAtual;
                 Caixinha.MesCriacao = dataSimulada.MesAtual;
                 Caixinha.AnoCriacao = dataSimulada.AnoAtual;
+                Caixinha.ValorCaixinhaInicial = Caixinha.ValorCaixinhaAtual;
+                Caixinha.ValorRendido = 0;
+                Caixinha.DiasCorridos = 0;
 
                 // Processamento da imagem
                 if (ArquivoImagem != null && ArquivoImagem.Length > 0)
@@ -137,7 +141,26 @@ namespace Banksim_Web.Pages.Caixinha
                     try
                     {
                         _db.Caixinhas.Add(Caixinha);
-                        conta.Saldo -= Caixinha.ValorCaixinhaAtual; // Deduzir o valor do saldo
+                        conta.Saldo -= Caixinha.ValorCaixinhaAtual;
+
+                        // Salva a caixinha para obter o ID
+                        await _db.SaveChangesAsync();
+
+                        // Criar o primeiro aporte
+                        var aporte = new AporteCaixinha
+                        {
+                            CaixinhaID = Caixinha.ID,
+                            ContaBancariaID = conta.ID,
+                            ValorAporte = Caixinha.ValorCaixinhaAtual,
+                            DiasAplicados = 0,
+                            DiaCriacao = dataSimulada.DiaAtual,
+                            MesCriacao = dataSimulada.MesAtual,
+                            AnoCriacao = dataSimulada.AnoAtual
+                        };
+
+                        _db.AportesCaixinha.Add(aporte);
+
+                        // Salva o aporte
                         await _db.SaveChangesAsync();
                         await transaction.CommitAsync();
                         _logger.LogInformation("Caixinha salva no banco de dados com ID: {Id}. Saldo atualizado para {Saldo}", Caixinha.ID, conta.Saldo);

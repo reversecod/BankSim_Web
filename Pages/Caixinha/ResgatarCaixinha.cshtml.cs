@@ -66,6 +66,44 @@ namespace Banksim_Web.Pages.Caixinha
                 return Page();
             }
 
+            decimal valorRestanteResgate = Valor;
+
+            // Buscar aportes ativos da caixinha, em ordem FIFO (do mais antigo para o mais recente)
+            var aportes = _db.AportesCaixinha
+                .Where(a => a.CaixinhaID == caixinha.ID && a.ContaBancariaID == conta.ID && a.ValorAporte > 0)
+                .OrderBy(a => a.ID) // FIFO
+                .ToList();
+
+            foreach (var aporte in aportes)
+            {
+                if (valorRestanteResgate <= 0) break;
+
+                decimal totalDisponivelAporte = aporte.ValorAporte + aporte.RendimentoAporte;
+
+                if (totalDisponivelAporte >= valorRestanteResgate)
+                {
+                    // Calcula a proporção de desconto entre capital e rendimento
+                    decimal proporcaoCapital = aporte.ValorAporte / totalDisponivelAporte;
+                    decimal proporcaoRendimento = aporte.RendimentoAporte / totalDisponivelAporte;
+
+                    aporte.ValorAporte -= valorRestanteResgate * proporcaoCapital;
+                    aporte.RendimentoAporte -= valorRestanteResgate * proporcaoRendimento;
+                    valorRestanteResgate = 0;
+                }
+                else
+                {
+                    valorRestanteResgate -= totalDisponivelAporte;
+                    aporte.ValorAporte = 0;
+                    aporte.RendimentoAporte = 0;
+                }
+            }
+
+            if (valorRestanteResgate > 0)
+            {
+                ModelState.AddModelError("", "Erro interno: valor solicitado excede os aportes disponíveis.");
+                return Page();
+            }
+            // Atualiza o valor total da caixinha e o saldo da conta
             caixinha.ValorCaixinhaAtual -= Valor;
             conta.Saldo += Valor;
 

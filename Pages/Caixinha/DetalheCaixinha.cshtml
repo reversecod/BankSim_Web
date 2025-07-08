@@ -2,10 +2,7 @@
 @model DetalheCaixinhaModel
 @{
     ViewData["Title"] = "Detalhes da Caixinha";
-    var diasAplicados = Model.DiaAtual - Model.Caixinha.DiaCriacao;
-    var rendimentoTotal = Model.Caixinha.ValorCaixinhaAtual * (decimal)Math.Pow(1 + (double)(Model.Caixinha.PorcentagemRendimento / 100), diasAplicados / 30.0);
 }
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -127,10 +124,11 @@
         </div>
 
         <div class="info">
-            <p><strong>Valor Inicial:</strong> R$ @Model.Caixinha.ValorCaixinhaAtual.ToString("N2")</p>
-            <p><strong>Rendimento Total:</strong> R$ @((rendimentoTotal - Model.Caixinha.ValorCaixinhaAtual).ToString("N2"))</p>
-            <p><strong>Total Bruto:</strong> R$ @rendimentoTotal.ToString("N2")</p>
-            <p><strong>Dias Aplicados:</strong> @diasAplicados dias</p>
+            <p><strong>Valor Inicial:</strong> R$ @Model.Caixinha.ValorCaixinhaInicial.ToString("N2")</p>
+            <p><strong>Valor Líquido:</strong> R$ @Model.ValorLiquido.ToString("N2")</p>
+            <p><strong>Rendimento Total:</strong> R$ @Model.Caixinha.ValorRendido.ToString("N2")</p>
+            <p><strong>Total Bruto:</strong> R$ @Model.Caixinha.ValorCaixinhaAtual.ToString("N2")</p>
+            <p><strong>Dias Aplicados:</strong> @Model.Caixinha.DiasCorridos dias</p>
         </div>
 
         <div class="btn-group">

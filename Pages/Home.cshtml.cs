@@ -36,11 +36,68 @@ public class HomeModel : PageModel
             .FirstOrDefaultAsync(c => c.UsuarioID.ToString() == userId);
 
         if (conta == null || conta.dataSimulada == null)
-            return RedirectToPage("/Erro");
+            return RedirectToPage("/Error");
 
         if (AcaoData == "avancar")
         {
             conta.dataSimulada.AvancarDias(1);
+
+            await _db.Caixinhas
+                .Where(c => c.ContaBancariaID == conta.ID)
+                .ExecuteUpdateAsync(c => c.SetProperty(x => x.DiasCorridos, x => x.DiasCorridos + 1));
+
+            await _db.AportesCaixinha
+                .Where(a => a.ContaBancariaID == conta.ID && a.ValorAporte > 0)
+                .ExecuteUpdateAsync(a => a.SetProperty(x => x.DiasAplicados, x => x.DiasAplicados + 1));
+
+            var dataAtual = new DateOnly(
+                conta.dataSimulada.AnoAtual,
+                conta.dataSimulada.MesAtual,
+                conta.dataSimulada.DiaAtual
+            );
+
+            var eventosHoje = await _db.Calendario
+                .Where(e => e.ContaBancariaID == conta.ID &&
+                       (
+                           (e.Recorrente && e.Dia == dataAtual.Day) ||
+                           (!e.Recorrente && e.Dia == dataAtual.Day && e.Mes == dataAtual.Month && e.Ano == dataAtual.Year)
+                       ))
+                .ToListAsync();
+
+            foreach (var evento in eventosHoje)
+            {
+                switch (evento.TipoEvento)
+                {
+                    case TipoEventoCalendario.Deposito:
+                        conta.Saldo += evento.Valor;
+                        TempData["DepositoTitulo"] = evento.Titulo;
+                        TempData["DepositoDescricao"] = evento.Descricao ?? "Sem descrição";
+                        TempData["DepositoValor"] = evento.Valor;
+                        break;
+
+                    case TipoEventoCalendario.Transferencia:
+                        if (conta.Saldo >= evento.Valor)
+                        {
+                            conta.Saldo -= evento.Valor;
+                            TempData["TransferenciaTitulo"] = evento.Titulo;
+                            TempData["TransferenciaDescricao"] = evento.Descricao ?? "Sem descrição";
+                            TempData["TransferenciaValor"] = evento.Valor;
+                        }
+                        else
+                        {
+                            TempData["TransferenciaTitulo"] = "Transferência Bloqueada";
+                            TempData["TransferenciaDescricao"] = $"A transferência de R${evento.Valor:F2} foi bloqueada por saldo insuficiente.";
+                            TempData["TransferenciaValor"] = evento.Valor;
+                        }
+                        break;
+
+                    default:
+                        TempData["LembreteMensagem"] = evento.Titulo ?? "Você tem um lembrete hoje!";
+                        TempData["LembreteDescricao"] = evento.Descricao ?? "Sem detalhes";
+                        break;
+                }
+            }
+
             await _db.SaveChangesAsync();
         }
 
@@ -60,12 +117,12 @@ public class HomeModel : PageModel
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var conta = await _db.ContasBancarias
+            .Include(c => c.dataSimulada) 
             .FirstOrDefaultAsync(c => c.UsuarioID.ToString() == userId);
 
         if (conta == null)
             return RedirectToPage("/Erro");
 
-        // Impede alteração de limite com fatura em aberto e limite usado
         bool possuiFaturaAberta = await _db.Faturas
             .AnyAsync(f => f.ContaBancariaID == conta.ID && !f.Efetivado);
 
@@ -78,11 +135,23 @@ public class HomeModel : PageModel
             return Page();
         }
 
-        // Aplica novo limite
         conta.LimiteCreditoInicial = NovoLimite;
         conta.LimiteCreditoDisponivel = NovoLimite;
+
+        _db.Extratos.Add(new Extrato
+        {
+            ContaBancariaID = conta.ID,
+            TipoTransacao = "Alteração do limite de Crédito",
+            Valor = NovoLimite,
+            Descricao = $"Limite de crédito alterado para R$ {NovoLimite:F2}",
+            DiaTransacao = conta.dataSimulada.DiaAtual,
+            MesTransacao = conta.dataSimulada.MesAtual,
+            AnoTransacao = conta.dataSimulada.AnoAtual,
+            Timestamp = DateTime.Now
+        });
+
         await _db.SaveChangesAsync();
 
-        return RedirectToPage(); // Recarrega dados
+        return RedirectToPage();
     }
 }

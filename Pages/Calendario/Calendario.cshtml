@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{handler?}"
 @model CalendarioModel
 @{
     ViewData["Title"] = "Calendário";
@@ -9,6 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Calendário - BankSim</title>
+    <link rel="stylesheet" href="~/css/calendario.css" />
     <style>
         body {
             margin: 0;
@@ -43,160 +44,24 @@
             height: 2rem;
         }
 
-        .calendar-container {
-            max-width: 700px;
-            margin: 40px auto;
-            background-color: white;
-            padding: 20px 30px 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        .calendar-weekdays, .calendar-grid {
+            display: grid; /* Ativa o layout de grid */
+            grid-template-columns: repeat(7, 1fr); /* Cria 7 colunas de tamanho igual */
+            gap: 5px; /* Adiciona um pequeno espaço entre as células */
         }
 
-        .calendar-header {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
+        .calendar-weekdays {
+            margin-bottom: 10px; /* Espaço entre os nomes da semana e os números */
+            font-weight: bold; /* Deixa os nomes dos dias em negrito */
+            text-align: center; /* Centraliza o texto */
         }
 
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
-        }
-
-        .day-cell {
-            aspect-ratio: 1 / 1;
-            border: 1px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            font-weight: bold;
-            font-size: 1rem;
-            padding: 5px;
-        }
-
-            .day-cell[data-event="true"] {
-                background-color: #1065ee11;
-                border-color: #1065ee;
-                color: #1065ee;
-            }
-
-        .empty {
+        /* Opcional: para garantir que as células vazias ocupem espaço */
+        .day-cell.empty {
+            background-color: transparent;
             border: none;
-            background: none;
         }
-
-        
-        @@media (max-width: 768px) {
-            .calendar-container
-
-        {
-            width: 95%;
-            padding: 15px;
-        }
-
-        .calendar-header {
-            font-size: 1.2rem;
-        }
-
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.4); /* fundo escurecido */
-            align-items: center;
-            justify-content: center;
-        }
-
-            .modal.show {
-                display: flex;
-            }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: slideDown 0.3s ease;
-        }
-
-        @@keyframes slideDown {
-            from
-
-        {
-            transform: translateY(-20px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: #333;
-        }
-
-        .modal-content h2 {
-            margin-top: 0;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .modal-content label {
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
-        }
-
-        .modal-content input[type="text"],
-        .modal-content select {
-            width: 100%;
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        .modal-content input[type="checkbox"] {
-            margin-left: 5px;
-        }
-
-        .modal-content button {
-            margin-top: 20px;
-            width: 100%;
-            background-color: #1065ee;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-            .modal-content button:hover {
-                background-color: #0d4fbd;
-            }
-    </style>
+</style>
 </head>
 <body>
     <div class="top-bar">
@@ -208,17 +73,35 @@
     </div>
 
     <div class="calendar-container">
-        <div class="calendar-header">
-            @Model.DataSimulada.ToString("MMMM yyyy").ToUpper()
+        <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center;">
+            @{
+                var mesAnterior = CalendarioModel.MesAnterior(Model.DataSimulada.Month, Model.DataSimulada.Year);
+                var proximoMes = CalendarioModel.ProximoMes(Model.DataSimulada.Month, Model.DataSimulada.Year);
+            }
+            <a href="?MesSelecionado=@mesAnterior.mes&AnoSelecionado=@mesAnterior.ano">←</a>
+            <span>@Model.DataSimulada.ToString("MMMM", new System.Globalization.CultureInfo("pt-BR")).ToUpper()</span>
+            <a href="?MesSelecionado=@proximoMes.mes&AnoSelecionado=@proximoMes.ano">→</a>
         </div>
-
+        <div class="calendar-weekdays">
+            <div class="weekday">SEG</div>
+            <div class="weekday">TER</div>
+            <div class="weekday">QUA</div>
+            <div class="weekday">QUI</div>
+            <div class="weekday">SEX</div>
+            <div style="color: red;">SÁB</div>
+            <div style="color: red;">DOM</div>
+        </div>
         <div class="calendar-grid">
             @{
                 int diasNoMes = DateTime.DaysInMonth(Model.DataSimulada.Year, Model.DataSimulada.Month);
                 DateTime primeiroDia = new DateTime(Model.DataSimulada.Year, Model.DataSimulada.Month, 1);
-                int diaSemanaInicio = ((int)primeiroDia.DayOfWeek + 6) % 7; // começa segunda (0)
+                int diaSemanaInicio = ((int)primeiroDia.DayOfWeek + 6) % 7; // Adjust to start week on Monday
 
-                // Dias em branco antes do início
+
+                DateOnly dataAtualSimulada = ViewData["DataAtualSimulada"] is DateOnly data
+                ? data
+                : new DateOnly(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+
                 for (int i = 0; i < diaSemanaInicio; i++)
                 {
                     <div class="day-cell empty"></div>
@@ -226,56 +109,436 @@
 
                 for (int dia = 1; dia <= diasNoMes; dia++)
                 {
+                    // Check for events for the current day
                     bool temEvento = Model.Eventos.Any(e =>
-                    e.Dia == dia &&
-                    (e.Recorrente || e.Ano == Model.DataSimulada.Year));
+                    (e.Recorrente && e.Dia == dia) ||
+                    (!e.Recorrente && e.Dia == dia && e.Mes == Model.DataSimulada.Month && e.Ano == Model.DataSimulada.Year));
 
-                    <div class="day-cell" data-event="@temEvento" onclick="abrirModal(@dia)">
-                        @dia
+                    var dataDoDia = new DateOnly(Model.DataSimulada.Year, Model.DataSimulada.Month, dia);
+                    bool isHoje = dataDoDia == dataAtualSimulada;
+                    bool isPassado = dataDoDia < dataAtualSimulada;
+
+                    string classeExtra = isHoje ? "hoje" : isPassado ? "passado" : "clicavel";
+
+                    <div class="day-cell @classeExtra" data-day="@dia" data-event="@temEvento" onclick="handleClickDia(this, @dia)">
+                        <div style="text-align: left; width: 100%;">
+                            <strong>@dia</strong>
+                            <ul style="margin: 0; padding-left: 12px; font-weight: normal; font-size: 0.85rem;">
+                                @foreach (var evento in Model.Eventos
+                                                        .Where(e =>
+                                                        (e.Recorrente && e.Dia == dia) ||
+                                                        (!e.Recorrente && e.Dia == dia && e.Mes == Model.DataSimulada.Month && e.Ano == Model.DataSimulada.Year))
+                                                        .Take(3))
+                                {
+                                    var cor = evento.Tipo == "Evento" ? "#5b22b9" : "#e05d00";
+                                    <li style="color: @cor; font-weight: 600;">@evento.Titulo</li>
+                                }
+                            </ul>
+                        </div>
                     </div>
                 }
             }
         </div>
     </div>
-    <div id="eventoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="fecharModal()">&times;</span>
-            <h2>Adicionar Evento no Dia <span id="diaSelecionado"></span></h2>
-            <form method="post" asp-page-handler="SalvarEvento">
-                <input type="hidden" id="Dia" name="Dia" />
-                <input type="hidden" id="Mes" name="Mes" />
-                <input type="hidden" id="Ano" name="Ano" />
 
-                <label>Tipo de Evento:</label>
-                <select name="TipoEvento">
-                    <option value="Transferencia">Transferência</option>
-                    <option value="Deposito">Depósito</option>
-                </select>
+    <!-- Modal de Visualização de Eventos (renomeado de eventoModal) -->
+    <div id="modal-visualizacao" class="modal">
+        <div class="modal-content modal-visualizacao">
+            <span class="close" onclick="fecharModalVisualizacao()">&times;</span>
+            <div class="cabecalho-modal">
+                <h2 id="titulo-visualizacao">Eventos para o Dia <span id="diaVisualizacaoSelecionado"></span></h2>
+            </div>
+            <div id="eventos-lista-visualizacao" style="margin-top: 20px;">
+                <!-- Eventos serão carregados aqui via JS -->
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                <button type="button" class="btn-secondary" onclick="abrirModalCriacaoDoVisualizacao()">Adicionar Novo</button>
+                <button type="button" class="btn-primary" onclick="abrirModalEdicaoSelecionado()">Editar Evento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Criação de Eventos/Lembretes -->
+    <div id="modal-criacao" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalCriacao()">&times;</span>
+            <h2 id="titulo-criacao">Novo Evento - Dia <span id="diaCriacaoSelecionado"></span></h2>
+
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <button type="button" id="btnEventoCriacao" class="tab-btn selected" onclick="selecionarTipoCriacao('Evento')">Evento</button>
+                <button type="button" id="btnLembreteCriacao" class="tab-btn" onclick="selecionarTipoCriacao('Lembrete')">Lembrete</button>
+            </div>
+
+            <form id="form-criacao" method="post" asp-page-handler="SalvarEvento">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="DiaCriacao" name="Dia" />
+                <input type="hidden" id="MesCriacao" name="Mes" />
+                <input type="hidden" id="AnoCriacao" name="Ano" />
+                <input type="hidden" id="TipoCriacao" name="Tipo" value="Evento" />
+
+                <label>Título:</label>
+                <input type="text" id="TituloCriacao" name="Titulo" required />
 
                 <label>Descrição:</label>
-                <input type="text" name="Descricao" />
+                <input type="text" id="DescricaoCriacao" name="Descricao" />
 
-                <label>
-                    Recorrente?
-                    <input type="checkbox" name="Recorrente" />
-                </label>
+                <div id="eventoCamposCriacao">
+                    <label>Tipo de Evento:</label>
+                    <select id="TipoEventoCriacao" name="TipoEvento">
+                        <option value="1">Depósito</option>
+                        <option value="2">Transferência</option>
+                    </select>
 
-                <button type="submit">Salvar Evento</button>
+                    <label>Valor:</label>
+                    <input type="number" id="ValorCriacao" step="0.01" name="Valor" />
+
+                    <label>
+                        Recorrente?
+                        <input type="checkbox" id="RecorrenteCriacao" name="Recorrente" />
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-full">Salvar</button>
             </form>
         </div>
     </div>
-    <script>
-    function abrirModal(dia) {
-        document.getElementById("Dia").value = dia;
-        document.getElementById("Mes").value = @Model.DataSimulada.Month;
-        document.getElementById("Ano").value = @Model.DataSimulada.Year;
-        document.getElementById("diaSelecionado").innerText = dia;
-        document.getElementById("eventoModal").classList.add("show");
-    }
 
-    function fecharModal() {
-        document.getElementById("eventoModal").classList.remove("show");
-    }
-</script>
+    <!-- Modal de Edição de Eventos/Lembretes -->
+    <div id="modal-edicao" class="modal">
+        <div class="modal-content modal-edicao">
+            <span class="close" onclick="fecharModalEdicao()">&times;</span>
+            <h2>Editar Evento</h2>
+            <form id="form-edicao" method="post" asp-page-handler="EditarEvento">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="eventoId" name="eventoId" />
+
+                <label>Tipo:</label>
+                <select id="tipo" name="Tipo" onchange="alternarCamposEdicao()">
+                    <option value="Evento">Evento</option>
+                    <option value="Lembrete">Lembrete</option>
+                </select>
+
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="Titulo" required />
+
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="Descricao" />
+
+                <div id="eventoCamposEdicao">
+                    <label>Tipo de Evento:</label>
+                    <select id="tipoEvento" name="TipoEvento">
+                        <option value="1">Transferência</option>
+                        <option value="0">Depósito</option>
+                    </select>
+
+                    <label>Valor:</label>
+                    <input type="number" id="valor" name="Valor" step="0.01" />
+
+                    <label>
+                        Recorrente?
+                        <input type="checkbox" id="recorrente" name="Recorrente" />
+                    </label>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                    <button type="button" class="excluir-btn" id="btnExcluirEvento" onclick="excluirEvento()">Excluir</button>
+                    <button type="submit" class="btn-primary">Salvar Alterações</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Alert/Confirm Modal -->
+    <div id="custom-dialog" class="custom-dialog">
+        <div class="custom-dialog-content">
+            <h3 id="custom-dialog-title"></h3>
+            <p id="custom-dialog-message"></p>
+            <div class="custom-dialog-buttons">
+                <button class="btn-ok" id="custom-dialog-ok-btn" style="display: none;">OK</button>
+                <button class="btn-yes" id="custom-dialog-yes-btn" style="display: none;">Sim</button>
+                <button class="btn-no" id="custom-dialog-no-btn" style="display: none;">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let diaClicado = null; // Armazena o dia clicado no calendário
+        let eventoSelecionadoId = null; // Armazena o ID do evento selecionado para edição
+        const eventosDoMes = @Html.Raw(Model.EventosJson); // Todos os eventos para o mês atual
+
+            function fecharTodosModais() {
+            document.querySelectorAll('.modal.show').forEach(modal => modal.classList.remove('show'));
+        }
+
+        // --- Funções de Diálogo Personalizado (substituindo alert/confirm) ---
+        function showCustomAlert(title, message) {
+            const dialog = document.getElementById('custom-dialog');
+            if (!dialog) return;
+
+            const titleEl = document.getElementById('custom-dialog-title');
+            const messageEl = document.getElementById('custom-dialog-message');
+            const okBtn = document.getElementById('custom-dialog-ok-btn');
+            const yesBtn = document.getElementById('custom-dialog-yes-btn');
+            const noBtn = document.getElementById('custom-dialog-no-btn');
+
+            if (titleEl) titleEl.innerText = title;
+            if (messageEl) messageEl.innerText = message;
+            okBtn.style.display = 'inline-block';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            dialog.classList.add('show');
+
+            return new Promise(resolve => {
+                okBtn.onclick = () => {
+                    dialog.classList.remove('show');
+                    resolve(true);
+                };
+            });
+        }
+
+        function showCustomConfirm(titulo, mensagem) {
+            return new Promise((resolve) => {
+                const dialog = document.getElementById("custom-dialog");
+                const titleEl = document.getElementById("custom-dialog-title");
+                const msgEl = document.getElementById("custom-dialog-message");
+                const yesBtn = document.getElementById("custom-dialog-yes-btn");
+                const noBtn = document.getElementById("custom-dialog-no-btn");
+
+                // Define os textos
+                titleEl.textContent = titulo;
+                msgEl.textContent = mensagem;
+
+                // Exibe o modal
+                dialog.classList.add("show");
+
+                // Exibe os botões necessários
+                yesBtn.style.display = "inline-block";
+                noBtn.style.display = "inline-block";
+
+                // Funções para clique
+                const onYes = () => {
+                    dialog.classList.remove("show");
+                    resolve(true);
+                    cleanup();
+                };
+
+                const onNo = () => {
+                    dialog.classList.remove("show");
+                    resolve(false);
+                    cleanup();
+                };
+
+                const cleanup = () => {
+                    yesBtn.removeEventListener("click", onYes);
+                    noBtn.removeEventListener("click", onNo);
+                };
+
+                // Adiciona listeners
+                yesBtn.addEventListener("click", onYes);
+                noBtn.addEventListener("click", onNo);
+            });
+        }
+
+        // --- Handler de Clique no Dia do Calendário ---
+        function handleClickDia(element, dia) {
+            if (element.classList.contains("passado") || element.classList.contains("hoje")) return;
+
+            diaClicado = dia;
+            const mes = parseInt('@Model.DataSimulada.Month');
+            const ano = parseInt('@Model.DataSimulada.Year');
+
+            const eventosDoDia = eventosDoMes.filter(e =>
+                e.dia === dia && (e.recorrente || (e.mes === mes && e.ano === ano))
+            );
+
+            if (eventosDoDia.length > 0) {
+                abrirModalVisualizacao(dia, eventosDoDia);
+            } else {
+                abrirModalCriacao(dia, mes, ano);
+            }
+        }
+
+        // --- Modal de Visualização (View Events Modal) ---
+        function abrirModalVisualizacao(dia, eventos) {
+            const modal = document.getElementById("modal-visualizacao");
+            if (!modal || modal.classList.contains("show")) return;
+
+            const lista = modal.querySelector("#eventos-lista-visualizacao");
+            const diaSpan = modal.querySelector("#diaVisualizacaoSelecionado");
+
+            if (!lista || !diaSpan) return;
+
+            lista.innerHTML = "";
+            eventoSelecionadoId = null;
+            diaSpan.innerText = dia;
+
+            if (eventos.length === 0) {
+                lista.innerHTML = "<p>Nenhum evento ou lembrete para este dia.</p>";
+            } else {
+                eventos.forEach(e => {
+                    const bloco = document.createElement("div");
+                    bloco.classList.add("evento-bloco");
+                    bloco.setAttribute("data-id", e.id);
+
+                    bloco.addEventListener("click", () => {
+                        document.querySelectorAll('.evento-bloco').forEach(el => el.classList.remove('selecionado'));
+                        bloco.classList.add('selecionado');
+                        eventoSelecionadoId = e.id;
+                    });
+
+                    const titulo = document.createElement("strong");
+                    titulo.innerText = e.titulo || "(Sem título)";
+                    const descricao = document.createElement("p");
+                    descricao.innerText = e.descricao || "";
+                    descricao.style.fontSize = '0.8rem';
+
+                    bloco.appendChild(titulo);
+                    bloco.appendChild(descricao);
+                    lista.appendChild(bloco);
+                });
+            }
+
+            fecharTodosModais();
+            modal.classList.add("show");
+        }
+
+        window.fecharModalVisualizacao = function() {
+            // CORREÇÃO: Não resetar eventoSelecionadoId aqui, pois ele é necessário para abrir o modal de edição.
+            document.getElementById("modal-visualizacao").classList.remove("show");
+        }
+
+        // --- Modal de Criação (Create Event Modal) ---
+        function abrirModalCriacao(dia, mes, ano) {
+            // Define os campos ocultos para o envio do formulário
+            const inputDia = document.getElementById("DiaCriacao");
+            if (inputDia) inputDia.value = dia;
+            const inputMes = document.getElementById("MesCriacao");
+            if (inputMes) inputMes.value = mes;
+            const inputAno = document.getElementById("AnoCriacao");
+            if (inputAno) inputAno.value = ano;
+
+            // Atualiza o título do modal
+            document.getElementById("diaCriacaoSelecionado").innerText = dia;
+            document.getElementById("titulo-criacao").innerHTML = `Novo Evento - Dia <span id="diaCriacaoSelecionado">${dia}</span>`;
+
+            // Reinicia os campos do formulário
+            const formCriacao = document.getElementById("form-criacao");
+            if (formCriacao) {
+                formCriacao.reset();
+            } else {
+                console.warn("Formulário de criação não encontrado no DOM.");
+            }
+
+            selecionarTipoCriacao('Evento'); // Padrão para 'Evento'
+
+            document.getElementById("modal-criacao").classList.add("show");
+        }
+
+        function fecharModalCriacao() {
+            document.getElementById("modal-criacao").classList.remove("show");
+        }
+
+        // RENOMEADA E AJUSTADA: Função para selecionar o tipo no modal de criação
+         function selecionarTipoCriacao(tipo) {
+            const isEvento = tipo === "Evento";
+            document.getElementById("TipoCriacao").value = tipo;
+
+            const btnEvento = document.getElementById("btnEventoCriacao");
+            const btnLembrete = document.getElementById("btnLembreteCriacao");
+            const eventoCampos = document.getElementById("eventoCamposCriacao");
+
+            if (btnEvento && btnLembrete) {
+                btnEvento.classList.toggle("selected", isEvento);
+                btnLembrete.classList.toggle("selected", !isEvento);
+            }
+
+            if (eventoCampos) {
+                eventoCampos.style.display = isEvento ? "block" : "none";
+            }
+
+            // Atualiza o título com base no tipo selecionado
+            const dia = document.getElementById("DiaCriacao").value;
+            document.getElementById("titulo-criacao").innerHTML = `Novo ${tipo} - Dia <span id="diaCriacaoSelecionado">${dia}</span>`;
+        }
+
+        async function abrirModalEdicaoSelecionado() {
+            if (!eventoSelecionadoId) {
+                await showCustomAlert("Atenção", "Por favor, selecione um evento/lembrete para editar.");
+                return;
+            }
+
+            fecharModalVisualizacao(); // Fecha o modal de visualização
+            setTimeout(() => { // Pequeno atraso para a animação
+                abrirModalEdicao(eventoSelecionadoId);
+            }, 150);
+        }
+
+        function abrirModalEdicao(id) {
+            const evento = eventosDoMes.find(e => e.id === id);
+            if (!evento) {
+                showCustomAlert("Erro", "Evento não encontrado.");
+                return;
+            }
+
+            // Popula os campos do formulário de edição
+            document.getElementById("eventoId").value = id;
+            document.getElementById("tipo").value = evento.tipo;
+            document.getElementById("titulo").value = evento.titulo || "";
+            document.getElementById("descricao").value = evento.descricao || "";
+            document.getElementById("tipoEvento").value = evento.tipoEvento || "0"; // Garante que o padrão seja uma string, se necessário
+            document.getElementById("valor").value = evento.valor || 0;
+            document.getElementById("recorrente").checked = evento.recorrente;
+
+            alternarCamposEdicao(); // Ajusta os campos com base no tipo de evento
+            document.getElementById("modal-edicao").classList.add("show");
+        }
+
+        function alternarCamposEdicao() {
+            const tipoInput = document.getElementById("tipo");
+            if (!tipoInput) return;
+            const tipo = tipoInput.value;
+            const eventoCampos = document.getElementById("eventoCamposEdicao");
+            if (eventoCampos) eventoCampos.style.display = (tipo === "Evento") ? "block" : "none";
+        }
+
+        function fecharModalEdicao() {
+            document.getElementById("modal-edicao").classList.remove("show");
+        }
+
+        async function excluirEvento() {
+            const id = document.getElementById("eventoId").value;
+            if (!id) return;
+
+            const confirmDelete = confirm("Tem certeza que deseja excluir este evento/lembrete?");
+            if (!confirmDelete) return;
+
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            const formData = new FormData();
+            formData.append("eventoId", id);
+            formData.append("__RequestVerificationToken", token);
+
+            const response = await fetch("?handler=ExcluirEvento", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert("Erro ao excluir.");
+            }
+        }
+
+        // --- Botões de Ação do Modal de Visualização ---
+        function abrirModalCriacaoDoVisualizacao() {
+            fecharModalVisualizacao(); // Fecha o modal de visualização
+            setTimeout(() => { // Pequeno atraso para a animação
+                const mes = @Model.DataSimulada.Month;
+                const ano = @Model.DataSimulada.Year;
+                abrirModalCriacao(diaClicado, mes, ano); // Usa o dia clicado armazenado
+            }, 150);
+        }
+    </script>
 </body>
 </html>

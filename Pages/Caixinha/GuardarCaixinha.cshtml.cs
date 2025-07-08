@@ -93,6 +93,19 @@ namespace Banksim_Web.Pages.Caixinha
             conta.Saldo -= Valor;
             caixinha.ValorCaixinhaAtual += Valor;
 
+            var novoAporte = new AporteCaixinha
+            {
+                ContaBancariaID = conta.ID,
+                CaixinhaID = caixinha.ID,
+                ValorAporte = Valor,
+                DiasAplicados = 0,
+                DiaCriacao = dataSimulada.DiaAtual,
+                MesCriacao = dataSimulada.MesAtual,
+                AnoCriacao = dataSimulada.AnoAtual
+            };
+
+            _db.AportesCaixinha.Add(novoAporte);
+
             Console.WriteLine($"Novo saldo: R$ {conta.Saldo:F2}");
             Console.WriteLine($"Novo valor na caixinha \"{caixinha.NomeCaixinha}\": R$ {caixinha.ValorCaixinhaAtual:F2}");
 

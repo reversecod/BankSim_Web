@@ -121,6 +121,22 @@
 
             <button type="submit" class="btn-submit">Salvar Alterações</button>
         </form>
+
+        <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Tem certeza que deseja excluir esta anotação?');">
+            <input type="hidden" asp-for="Anotacao.ID" />
+            <button type="submit" style="
+        margin-top: 10px;
+        width: 100%;
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;">
+                Excluir Anotação
+            </button>
+        </form>
     </div>
 </body>
 </html>

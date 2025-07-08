@@ -9,10 +9,12 @@ public class Calendario
     public int Dia { get; set; }
     public int Mes { get; set; }
     public int Ano { get; set; }
-    public bool Recorrente { get; set; } // se true, o evento ocorre todo mês no mesmo dia
+    public string Tipo { get; set; } = "Evento"; // "Evento" ou "Lembrete"
     public TipoEventoCalendario TipoEvento { get; set; }
-
-    public string? Descricao { get; set; }
-
+    public decimal Valor { get; set; }
+    public bool Recorrente { get; set; } // se true, o evento ocorre todo mês no mesmo dia
+    public string? Titulo { get; set; }//Titulo do evento ou do lembrete
+    public string? Descricao { get; set; }//Se for evento serve para descrever a transferencia/deposito, se não é o próprio lembrete
+    public bool Concluido { get; set; }
     public ContaBancaria Conta { get; set; } = null!;
 }

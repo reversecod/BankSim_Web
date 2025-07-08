@@ -14,7 +14,7 @@ namespace Banksim_Web.Pages.Caixinha
         {
             _db = db;
         }
-
+        public decimal ValorLiquido { get; set; }
         public Models.Caixinha Caixinha { get; set; } = null!;
         public int DiaAtual { get; set; }
 
@@ -30,6 +30,8 @@ namespace Banksim_Web.Pages.Caixinha
                 return RedirectToPage("/Erro");
 
             DiaAtual = data.DiaAtual;
+            ValorLiquido = Caixinha.ValorCaixinhaAtual - Caixinha.ValorRendido;
+
             return Page();
         }
     }

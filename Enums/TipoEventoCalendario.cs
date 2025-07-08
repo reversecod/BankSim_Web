@@ -1,7 +1,6 @@
 ﻿public enum TipoEventoCalendario
 {
+    Nenhum = 0,
     Deposito = 1,
-    Transferencia = 2,
-    AlertaSimples = 3,
-    Lembrete = 4
+    Transferencia = 2
 }

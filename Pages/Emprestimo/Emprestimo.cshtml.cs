@@ -26,7 +26,7 @@ public class EmprestimoModel : PageModel
     [BindProperty]
     public int DiaPagamento { get; set; }
 
-    public double PorcentagemJuros { get; set; }
+    public decimal PorcentagemJuros { get; set; }
 
     public IActionResult OnGet()
     {

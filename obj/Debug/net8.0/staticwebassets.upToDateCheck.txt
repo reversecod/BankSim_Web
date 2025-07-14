@@ -1,5 +1,6 @@
 wwwroot\css\calendario.css
 wwwroot\css\index.css
+wwwroot\css\notificacao.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\BankSimIcon.ico
@@ -21,6 +22,8 @@ wwwroot\img\logoBKScontorno.png
 wwwroot\img\logoBKSdark.png
 wwwroot\img\logoBKStranslucid.png
 wwwroot\img\minilogoBKS.png
+wwwroot\img\notification-bell.png
+wwwroot\img\notification-bell1.png
 wwwroot\img\sistema-bancario.jpg
 wwwroot\img\sistema-bancario2.jpg
 wwwroot\js\site.js

@@ -1,4 +1,5 @@
-﻿using Banksim_Web.Models;
+﻿using Banksim_Web.Enums;
+using Banksim_Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -28,6 +29,8 @@ public class HomeModel : PageModel
 
     public string? MensagemErro { get; set; }
 
+    bool novaNotificacao = false;
+    public List<Notificacao> Notificacoes { get; set; } = new();
     public async Task<IActionResult> OnGetAsync()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -64,6 +67,125 @@ public class HomeModel : PageModel
                        ))
                 .ToListAsync();
 
+            var diaAtual = conta.dataSimulada.DiaAtual;
+            var mesAtual = conta.dataSimulada.MesAtual;
+            var anoAtual = conta.dataSimulada.AnoAtual;
+
+            // Verificação 1: Dia seguinte ao FECHAMENTO da fatura
+            if (diaAtual == conta.DiaFatura + 1)
+            {
+                var faturaFechada = await _db.Faturas.FirstOrDefaultAsync(f =>
+                    f.ContaBancariaID == conta.ID &&
+                    f.MesPagamento == mesAtual &&
+                    f.AnoPagamento == anoAtual &&
+                    !f.Efetivado);
+
+                if (faturaFechada != null)
+                {
+                    int mesReferencia = mesAtual == 1 ? 12 : mesAtual - 1;
+                    int anoReferencia = mesAtual == 1 ? anoAtual - 1 : anoAtual;
+
+                    string nomeMesReferencia = ((Meses)mesReferencia).ToString();
+                    string nomeMesFechamento = ((Meses)mesAtual).ToString();
+
+                    _db.Notificacoes.Add(new Notificacao
+                    {
+                        ContaBancariaID = conta.ID,
+                        Titulo = "Fatura fechada",
+                        Mensagem = $"Sua fatura referente ao mês de {nomeMesReferencia}/{anoReferencia} foi fechada em {conta.DiaFatura:D2}/{nomeMesFechamento}/{anoAtual}.",
+                        DataNotificacao = DateTime.Now,
+                        DiaNotificacao = diaAtual,
+                        MesNotificacao = mesAtual,
+                        AnoNotificacao = anoAtual,
+                        Lida = false
+                    });
+
+                    novaNotificacao = true;
+                }
+            }
+
+            // Verificação 2: Dia seguinte ao VENCIMENTO da fatura
+            if (diaAtual == conta.DiaPagamentoFatura + 1)
+            {
+                var faturasVencidas = await _db.Faturas
+                    .Where(f => f.ContaBancariaID == conta.ID &&
+                                !f.Efetivado &&
+                                f.AnoPagamento == anoAtual &&
+                                f.MesPagamento == mesAtual)
+                    .ToListAsync();
+
+                foreach (var fatura in faturasVencidas)
+                {
+                    int mesReferencia = mesAtual == 1 ? 12 : mesAtual - 1;
+                    int anoReferencia = mesAtual == 1 ? anoAtual - 1 : anoAtual;
+
+                    string nomeMesReferencia = ((Meses)mesReferencia).ToString();
+                    string nomeMesFechamento = ((Meses)mesAtual).ToString();
+
+                    _db.Notificacoes.Add(new Notificacao
+                    {
+                        ContaBancariaID = conta.ID,
+                        Titulo = "Fatura em atraso",
+                        Mensagem = $"A fatura referente ao mês {nomeMesReferencia:D2}/{anoReferencia} (fechada em {conta.DiaPagamentoFatura:D2}/{nomeMesFechamento:D2}/{anoAtual}) está em atraso. Valor: R$ {fatura.ValorFaturaAtual:F2}.",
+                        DataNotificacao = DateTime.Now,
+                        DiaNotificacao = diaAtual,
+                        MesNotificacao = mesAtual,
+                        AnoNotificacao = anoAtual,
+                        Lida = false
+                    });
+
+                    novaNotificacao = true;
+                }
+            }
+
+            // Verifica empréstimos vencidos (baseado em diaPagamento e MesProxPagamento)
+            var emprestimos = await _db.Emprestimos
+            .Where(e => e.ContaBancariaID == conta.ID && !e.Pago)
+            .ToListAsync();
+
+            foreach (var emp in emprestimos)
+            {
+                // 1. Verifica se hoje é o dia após o vencimento da parcela
+                bool ehDiaPosVencimento = diaAtual == emp.diaPagamento + 1;
+
+                // 2. Verifica se a parcela pertence ao mês atual
+                bool mesConfere = emp.MesProxPagamento == mesAtual;
+
+                if (ehDiaPosVencimento && mesConfere)
+                {
+                    int mesReferencia = emp.MesProxPagamento;
+                    int anoReferencia = anoAtual;
+
+                    string nomeMesReferencia = ((Meses)mesReferencia).ToString();
+
+                    // 3. Verifica se já existe notificação para esse empréstimo e mês
+                    bool jaNotificado = await _db.Notificacoes.AnyAsync(n =>
+                        n.ContaBancariaID == conta.ID &&
+                        n.Titulo == "Parcela de empréstimo em atraso" &&
+                        n.Mensagem.Contains($"referente a {nomeMesReferencia}/{anoReferencia}") &&
+                        n.MesNotificacao == mesAtual &&
+                        n.AnoNotificacao == anoAtual);
+
+                    // 4. Cria a notificação se ainda não existir
+                    if (!jaNotificado)
+                    {
+                        _db.Notificacoes.Add(new Notificacao
+                        {
+                            ContaBancariaID = conta.ID,
+                            Titulo = "Parcela de empréstimo em atraso",
+                            Mensagem = $"A parcela do empréstimo \"{emp.NomeEmprestimo}\" referente a {nomeMesReferencia}/{anoReferencia} está vencida.",
+                            DataNotificacao = DateTime.Now,
+                            DiaNotificacao = diaAtual,
+                            MesNotificacao = mesAtual,
+                            AnoNotificacao = anoAtual,
+                            Lida = false
+                        });
+
+                        novaNotificacao = true;
+                    }
+                }
+            }
+
             foreach (var evento in eventosHoje)
             {
                 switch (evento.TipoEvento)
@@ -99,6 +221,11 @@ public class HomeModel : PageModel
             }
 
             await _db.SaveChangesAsync();
+
+            if (novaNotificacao)
+            {
+                TempData["NovaNotificacao"] = true;
+            }
         }
 
         Saldo = conta.Saldo;
@@ -109,6 +236,11 @@ public class HomeModel : PageModel
             conta.dataSimulada.MesAtual,
             conta.dataSimulada.DiaAtual
         );
+
+        Notificacoes = await _db.Notificacoes
+        .Where(n => n.ContaBancariaID == conta.ID)
+        .OrderByDescending(n => n.DataNotificacao)
+        .ToListAsync();
 
         return Page();
     }

@@ -84,7 +84,7 @@ namespace Banksim_Web.Pages.Emprestimo
             ValorParcela = EmprestimoAtual.ValorParcela;
 
             int qtdParcelasPagas = ParcelasSelecionadas.Count;
-            decimal valorPago = ValorParcela * qtdParcelasPagas;
+            decimal valorPago = Math.Round(EmprestimoAtual.ValorParcela * qtdParcelasPagas, 2, MidpointRounding.AwayFromZero);
 
             if (conta.Saldo < valorPago)
             {
@@ -96,7 +96,7 @@ namespace Banksim_Web.Pages.Emprestimo
             conta.Saldo -= valorPago;
 
             EmprestimoAtual.QntdParcela -= qtdParcelasPagas;
-            EmprestimoAtual.ValorPago += valorPago;
+            EmprestimoAtual.ValorPago = Math.Round(EmprestimoAtual.ValorPago + valorPago, 2, MidpointRounding.AwayFromZero);
 
             EmprestimoAtual.MesProxPagamento += qtdParcelasPagas;
             while (EmprestimoAtual.MesProxPagamento > 12)

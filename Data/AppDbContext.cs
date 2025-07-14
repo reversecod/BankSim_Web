@@ -18,6 +18,8 @@ public class AppDbContext : DbContext
     public DbSet<Extrato> Extratos { get; set; }
     public DbSet<Calendario> Calendario { get; set; }
     public DbSet<ExtratoFaturas> ExtratoFaturas { get; set; }
+    public DbSet<Notificacao> Notificacoes { get; set; }
+
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

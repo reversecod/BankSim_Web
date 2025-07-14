@@ -92,7 +92,13 @@ public class EmprestimoModel : PageModel
         // Cálculo da Tabela Price (fixando o valor da parcela)
         var juros = (decimal)(conta.PorcentagemEmprestimo / 100);
         var fator = (decimal)Math.Pow(1 + (double)juros, QntdParcela);
-        var valorParcela = ValorEmprestimo * (juros * fator) / (fator - 1);
+        // CALCULAR PARCELA COM ARREDONDAMENTO SEGURO
+        var valorParcela = Math.Round(
+            ValorEmprestimo * (juros * fator) / (fator - 1),
+            2,
+            MidpointRounding.AwayFromZero);
+
+        // RECALCULA VALOR TOTAL COM BASE NO VALOR PARCELA ARREDONDADO
         var valorTotalComJuros = valorParcela * QntdParcela;
 
         var novoEmprestimo = new Emprestimo

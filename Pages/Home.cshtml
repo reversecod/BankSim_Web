@@ -7,6 +7,7 @@
 }
 <!DOCTYPE html>
 <html lang="pt-br">
+<link rel="stylesheet" href="~/css/notificacao.css" />
 <head>
     <meta charset="utf-8" />
     <title>Home - BankSim</title>
@@ -205,6 +206,7 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.2);
             text-align: center;
             color: #333;
+            position: relative;
         }
 
             .modal-content h2 {
@@ -227,6 +229,36 @@
                 .modal-content button:hover {
                     background-color: #1976c5;
                 }
+
+        .toast-notificacao {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #2198F4;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.25);
+            z-index: 9999;
+            animation: aparecer 0.5s ease, desaparecer 0.5s ease 3s forwards;
+        }
+
+        .btn-fechar-x {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+            .btn-fechar-x:hover {
+                color: #000;
+            }
     </style>
 </head>
 <body>
@@ -355,18 +387,72 @@
             <div class="data-box">
                 @dataFormatada - <span style="font-weight:600;">@nomeDiaSemanaCapitalizado</span>
             </div>
-            <a class="btn-avancar" asp-page="/Home" asp-route-AcaoData="avancar">Avançar Dia</a>
+
+            <button onclick="abrirModalNotificacoes()" style="background: none; border: none; cursor: pointer;">
+                <img src="~/img/notification-bell.png" alt="Notificações" style="width: 28px;" />
+            </button>
+
+            <a class="btn-avancar" id="btnAvancarDia" href="@Url.Page("/Home", new { AcaoData = "avancar" })">Avançar Dia</a>
         </div>
     </div>
+    @if (Model.Notificacoes != null && Model.Notificacoes.Any())
+{
+    <div id="modalNotificacoes" class="modal-overlay">
+        <div class="modal-content" style="text-align: left; max-height: 80vh; overflow-y: auto;">
+            <h2>Notificações</h2>
+            @foreach (var n in Model.Notificacoes.OrderByDescending(n => n.DataNotificacao))
+            {
+                <div style="margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+                    <strong>@n.Titulo</strong><br />
+                    <p>@n.Mensagem</p>
+                </div>
+            }
+                <button onclick="fecharModalNotificacoes()" class="btn-fechar-x" aria-label="Fechar">×</button>
+        </div>
+    </div>
+}
+else
+{
+    <div id="modalNotificacoes" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Notificações</h2>
+            <p>Nenhuma notificação encontrada.</p>
+            <button onclick="fecharModalNotificacoes()">Fechar</button>
+        </div>
+    </div>
+}
+    @if (TempData["NovaNotificacao"] != null)
+    {
+        <div id="toast-notificacao" class="toast-notificacao">
+            <p>🔔 Nova notificação recebida</p>
+        </div>
+        TempData.Remove("NovaNotificacao"); 
+    }
     <script>
-        function fecharModalLembrete() {
-            document.getElementById("modalLembrete").style.display = "none";
-        }
+             window.onload = function () {
+            const modal = document.getElementById("modalLembrete");
+            const btnAvancar = document.getElementById("btnAvancarDia");
 
-        // Abre o modal automaticamente ao carregar
-        window.onload = function () {
-            document.getElementById("modalLembrete").style.display = "flex";
+            if (modal) {
+                modal.style.display = "flex";
+
+                // Desabilita botão enquanto o modal estiver aberto
+                btnAvancar.onclick = function (e) {
+                    e.preventDefault();
+                    alert("Você precisa fechar a mensagem antes de avançar o dia.");
+                };
+            }
         };
+
+        function fecharModalLembrete() {
+            const modal = document.getElementById("modalLembrete");
+            const btnAvancar = document.getElementById("btnAvancarDia");
+
+            modal.style.display = "none";
+
+            // Ativa o botão após fechar o modal
+            btnAvancar.onclick = null;
+        }
 
         function abrirModal() {
             document.getElementById("modalRedefinirLimite").style.display = "flex";
@@ -374,6 +460,14 @@
 
         function fecharModalLimite() {
             document.getElementById("modalRedefinirLimite").style.display = "none";
+        }
+
+        function abrirModalNotificacoes() {
+            document.getElementById("modalNotificacoes").style.display = "flex";
+        }
+
+        function fecharModalNotificacoes() {
+            document.getElementById("modalNotificacoes").style.display = "none";
         }
     </script>
 </body>
